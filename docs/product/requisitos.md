@@ -2,232 +2,276 @@
 
 **Versão:** 0.3  
 **Status:** Em revisão documental  
-**Referência principal:** [`product-brief.md`](./product-brief.md)
+**Referência:** `product-brief.md`
 
 ## 1. Objetivo
 
-Este documento define os requisitos funcionais e não funcionais previstos para o MVP do EduMaterial, uma proposta de plataforma digital voltada à descoberta, à seleção e ao acesso a materiais didáticos por professores.
+Este documento define os requisitos funcionais e não funcionais do EduMaterial, com foco na descoberta, consulta e acesso a materiais educacionais.
 
-Os requisitos descrevem os comportamentos esperados para o produto e servem de referência para as etapas futuras de especificação, implementação e avaliação.
+O público prioritário são professores que procuram recursos para utilizar em suas aulas.
 
-As funcionalidades descritas são planejadas. Não representam funcionalidades necessariamente implementadas, testadas ou validadas com usuários reais.
+Os requisitos representam o comportamento previsto para o Produto Mínimo Viável (MVP). A implementação ainda está prevista para uma etapa futura.
 
-## 2. Público-alvo
-
-O público prioritário é formado por professores que procuram materiais didáticos para utilizar em suas aulas.
-
-A interface e os comportamentos previstos devem apoiar a localização dos recursos, a consulta às suas informações e a identificação das formas disponíveis de acesso.
-
-## 3. Requisitos funcionais
+## 2. Requisitos funcionais
 
 ### RF-001 — Exibir catálogo de materiais
 
-**Descrição:** O sistema deve apresentar um catálogo com os materiais cadastrados.
+O sistema deve apresentar um catálogo de materiais educacionais previamente cadastrados.
 
-**Critérios de aceitação:**
-
-- O catálogo deve apresentar os materiais disponíveis.
-- Cada material deve possuir um título que permita identificá-lo.
-- Os itens devem apresentar as informações resumidas definidas para o catálogo.
-- O usuário deve conseguir acessar os detalhes de um material.
-- Quando não houver materiais cadastrados, o sistema deve apresentar um estado informativo de catálogo vazio.
-
-**Prioridade:** Essencial para o MVP.
+**Critérios:**
+- Cada material deve apresentar informações que permitam identificá-lo.
+- O catálogo deve permitir que o usuário selecione um material para consultar seus detalhes.
+- Quando não houver materiais cadastrados, o sistema deve apresentar um estado vazio informativo.
 
 ### RF-002 — Pesquisar materiais por palavras-chave
 
-**Descrição:** O sistema deve permitir que o professor pesquise materiais por palavras ou expressões relacionadas ao recurso procurado.
+O sistema deve permitir que o usuário pesquise materiais educacionais por meio de palavras-chave.
 
-**Critérios de aceitação:**
+A busca deve consultar os seguintes campos:
+- Título.
+- Tipo de material.
+- Resumo.
+- Descrição.
 
-- O sistema deve disponibilizar um campo de pesquisa identificável.
-- O usuário deve conseguir informar palavras ou expressões.
-- O sistema deve apresentar os materiais correspondentes aos termos informados, de acordo com as regras de pesquisa definidas.
-- O usuário deve conseguir realizar uma nova pesquisa.
-- Quando não houver correspondências, o sistema deve apresentar um estado informativo sem resultados.
-- A ausência de resultados em uma pesquisa não deve ser confundida com a ausência de materiais cadastrados no catálogo.
+**Regras funcionais:**
 
-**Prioridade:** Essencial para o MVP.
+1. A busca não deve diferenciar letras maiúsculas de minúsculas.
+2. A busca deve ignorar diferenças de acentuação. Por exemplo, pesquisar `historia` deve permitir encontrar materiais com o termo `história`.
+3. A busca deve permitir correspondências parciais. Por exemplo, pesquisar `geog` deve permitir encontrar materiais que contenham `geografia` em um dos campos pesquisáveis.
+4. Os resultados devem ser ordenados por relevância, seguindo a prioridade dos campos definida no RF-003.
+5. A busca deve considerar os dados disponíveis nos campos pesquisáveis de cada material.
 
-**Pendências:** Definir os campos pesquisáveis e as regras de correspondência, incluindo o tratamento de acentos, letras maiúsculas e minúsculas e correspondências parciais.
+A definição dessas regras não implica que a funcionalidade já esteja implementada.
 
-### RF-003 — Filtrar materiais
+### RF-003 — Ordenar resultados por relevância
 
-**Descrição:** O sistema deve permitir que o professor refine os materiais apresentados no catálogo por tipo de material e etapa de ensino.
+O sistema deve ordenar os materiais encontrados conforme a relevância das correspondências com os termos pesquisados.
 
-**Critérios de aceitação:**
+A prioridade dos campos deve seguir esta ordem:
 
-- O sistema deve disponibilizar um filtro por tipo de material.
-- O sistema deve disponibilizar um filtro por etapa de ensino.
-- Os resultados devem corresponder aos filtros selecionados.
-- O usuário deve conseguir remover os filtros aplicados.
-- A interface deve permitir identificar os filtros ativos.
-- Quando os filtros não retornarem materiais, o sistema deve apresentar um estado informativo sem resultados.
+1. **Título:** maior prioridade.
+2. **Tipo de material:** segunda prioridade.
+3. **Resumo:** terceira prioridade.
+4. **Descrição:** quarta prioridade.
 
-**Prioridade:** Incluída no MVP.
+Quando houver correspondências em diferentes campos, os resultados devem priorizar os materiais que apresentem correspondências nos campos de maior prioridade.
 
-**Pendências:** Definir as opções de cada filtro e o comportamento da combinação entre filtros e pesquisa por palavras-chave.
+**Pendências de especificação:**
+- Definir como a relevância será calculada quando houver diferentes tipos de correspondência.
+- Definir o comportamento quando vários materiais apresentarem relevância equivalente.
+- Definir se a correspondência exata de uma palavra terá prioridade sobre a correspondência parcial.
 
-### RF-004 — Exibir detalhes do material
+Esses critérios deverão ser detalhados antes da implementação.
 
-**Descrição:** O sistema deve apresentar informações que permitam ao professor identificar e avaliar inicialmente um material didático.
+### RF-004 — Filtrar materiais
 
-**Critérios de aceitação:**
+O sistema deve permitir a aplicação de filtros para refinar os materiais apresentados no catálogo.
 
-- A página de detalhes deve identificar claramente o material selecionado.
-- O sistema deve apresentar os campos disponíveis para a descrição do recurso, conforme a estrutura de dados definida.
-- As informações devem ajudar o usuário a compreender as características do material.
-- O tipo de material e a etapa de ensino devem ser apresentados quando estiverem disponíveis.
-- A autoria, a fonte e as condições de utilização devem ser apresentadas quando essas informações estiverem disponíveis e forem aplicáveis.
-- A página deve indicar as formas de acesso cadastradas.
-- A consulta aos detalhes não deve depender de uma pré-visualização do conteúdo.
+Os filtros previstos para o MVP são:
+- Tipo de material.
+- Etapa de ensino.
 
-**Prioridade:** Essencial para o MVP.
+**Pontos pendentes:**
+- Definir as opções disponíveis em cada filtro.
+- Definir se será possível selecionar várias opções simultaneamente.
+- Definir como diferentes filtros serão combinados.
+- Definir como os filtros poderão ser removidos.
+- Especificar a interação entre os filtros e a busca por palavras-chave.
 
-**Pendência:** Definir quais campos serão obrigatórios e quais poderão ser opcionais.
+Os filtros devem apresentar resultados coerentes com os critérios selecionados pelo usuário.
 
-### RF-005 — Acessar material por link externo
+### RF-005 — Informar ausência de resultados
 
-**Descrição:** O sistema deve permitir que o professor acesse um material por meio de um link externo, quando essa forma de acesso estiver cadastrada.
+Quando uma busca ou combinação de filtros não encontrar materiais correspondentes, o sistema deve apresentar uma mensagem informativa.
 
-**Critérios de aceitação:**
+A interface deve permitir que o usuário revise os termos pesquisados ou altere os filtros aplicados.
 
-- O link deve estar associado ao material correspondente.
-- A interface deve identificar claramente a ação de acesso.
-- A ação deve direcionar o usuário ao endereço cadastrado.
-- O link não deve ser apresentado como disponível quando não houver um endereço cadastrado.
-- Quando o material também possuir um arquivo hospedado na plataforma, as duas formas de acesso devem poder ser identificadas separadamente.
+### RF-006 — Exibir detalhes do material
 
-**Prioridade:** Essencial para o MVP.
+O sistema deve apresentar informações que permitam ao usuário identificar e avaliar um material educacional.
 
-**Pendência:** Definir o comportamento da interface quando o endereço externo estiver indisponível ou inválido.
+Conforme os dados disponíveis, os detalhes poderão incluir:
+- Título.
+- Tipo de material.
+- Etapa de ensino.
+- Resumo.
+- Descrição.
+- Instruções de utilização.
+- Autor ou fonte.
+- Informações de autoria e licença, quando aplicáveis.
+- Link externo para acesso.
+- Arquivo hospedado na própria plataforma.
 
-### RF-006 — Acessar arquivo hospedado na plataforma
+Os campos obrigatórios e opcionais ainda deverão ser definidos na especificação dos dados dos materiais.
 
-**Descrição:** O sistema deve permitir que o professor acesse um arquivo disponibilizado diretamente na plataforma, quando essa forma de acesso estiver cadastrada.
+### RF-007 — Permitir acesso por link externo
 
-**Critérios de aceitação:**
+Quando um material possuir um link externo disponível, o sistema deve apresentar uma opção clara para que o usuário acesse o recurso na fonte correspondente.
 
-- O arquivo deve estar associado ao material correspondente.
-- A interface deve identificar a ação de acesso ao arquivo.
-- O usuário deve conseguir abrir ou baixar o arquivo conforme o formato e os recursos definidos para o produto.
-- A ação não deve ser apresentada como disponível quando não houver um arquivo cadastrado.
-- Quando houver também um link externo, as opções de acesso devem ser apresentadas de forma clara e distinta.
+O acesso deverá direcionar o usuário ao endereço associado ao material.
 
-**Prioridade:** Essencial para o MVP.
+A plataforma deve distinguir o acesso ao recurso externo das informações apresentadas na página de detalhes.
 
-**Pendências:** Definir os formatos de arquivo aceitos e o comportamento esperado quando um arquivo não puder ser acessado.
+### RF-008 — Permitir acesso a arquivos hospedados na plataforma
 
-### RF-007 — Informar ausência de resultados
+Quando um material possuir um arquivo hospedado na própria plataforma, o sistema deve disponibilizar uma opção clara de acesso ao arquivo.
 
-**Descrição:** O sistema deve comunicar quando a pesquisa ou os filtros não retornarem materiais.
+Os formatos aceitos e o comportamento específico para cada tipo de arquivo ainda precisam ser definidos.
 
-**Critérios de aceitação:**
+### RF-009 — Tratar as diferentes formas de acesso
 
-- A interface deve informar que nenhum material corresponde aos critérios utilizados.
-- O estado sem resultados deve ser visualmente distinto do catálogo vazio.
-- O usuário deve conseguir alterar os termos da pesquisa ou remover filtros.
-- A interface não deve apresentar resultados fictícios para preencher a listagem.
+O sistema deve representar corretamente os seguintes cenários:
 
-**Prioridade:** Essencial para o MVP.
+- **Somente link externo:** apresentar a opção de acesso ao link.
+- **Somente arquivo hospedado:** apresentar a opção de acesso ao arquivo.
+- **Link e arquivo:** disponibilizar as duas opções de acesso.
+- **Sem link e sem arquivo:** informar que não há acesso direto disponível para o material.
 
-### RF-008 — Informar ausência de forma de acesso
+A ausência de um link ou arquivo não deve ser interpretada automaticamente como ausência do material no catálogo.
 
-**Descrição:** O sistema deve comunicar quando um material não possuir link externo nem arquivo disponível para acesso.
+### RF-010 — Informar falhas de acesso
 
-**Critérios de aceitação:**
+Quando um link externo ou arquivo não puder ser acessado, o sistema deve apresentar uma mensagem compreensível sobre a indisponibilidade, quando essa condição puder ser identificada.
 
-- A página de detalhes deve informar que não há uma forma de acesso cadastrada.
-- A interface não deve apresentar uma ação de acesso indisponível como se fosse funcional.
-- As informações descritivas do material devem continuar acessíveis.
-- O usuário deve conseguir retornar ao catálogo ou escolher outro material.
+O comportamento específico para detectar e tratar falhas de acesso deverá ser definido antes da implementação.
 
-**Prioridade:** Essencial para o MVP.
-
-## 4. Requisitos não funcionais
+## 3. Requisitos não funcionais
 
 ### RNF-001 — Usabilidade
 
-A interface deve organizar informações e ações de modo compreensível, facilitando a exploração do catálogo, a pesquisa, a filtragem, a consulta aos detalhes e o acesso aos recursos.
-
-**Critério de avaliação futura:** observar se usuários conseguem concluir tarefas representativas em uma avaliação de usabilidade.
+A interface deve apresentar informações, mensagens e controles compreensíveis para professores que procuram materiais educacionais.
 
 ### RNF-002 — Responsividade
 
-A interface deve ser planejada para preservar a legibilidade e a utilização em diferentes tamanhos de tela.
+A interface deve se adaptar a diferentes tamanhos de tela, incluindo computadores, tablets e celulares.
 
-**Critério de avaliação futura:** verificar a apresentação e a utilização dos principais elementos em diferentes resoluções.
+### RNF-003 — Consistência
 
-### RNF-003 — Consistência visual e funcional
+As informações e os estados apresentados devem ser coerentes com os dados disponíveis e com as ações realizadas pelo usuário.
 
-Componentes que desempenham funções equivalentes devem manter padrões coerentes de apresentação, nomenclatura e comportamento.
+### RNF-004 — Clareza de acesso
 
-**Critério de avaliação futura:** revisar os componentes e os fluxos em conjunto com o Design System e a arquitetura da informação.
+A interface deve distinguir claramente entre:
+- Consultar os detalhes de um material.
+- Acessar um link externo.
+- Acessar um arquivo hospedado.
+- Consultar um material sem acesso direto disponível.
 
-### RNF-004 — Clareza das formas de acesso
+### RNF-005 — Transparência das informações
 
-O sistema deve distinguir links externos, arquivos hospedados na plataforma e materiais sem forma de acesso cadastrada.
+Quando disponíveis, as informações de autoria, fonte e condições de uso devem ser apresentadas de forma clara, respeitando os dados cadastrados para cada material.
 
-**Critério de avaliação futura:** verificar se usuários conseguem identificar corretamente as opções disponíveis em cada material.
+### RNF-006 — Acessibilidade
 
-### RNF-005 — Transparência sobre origem e utilização
+A interface deverá considerar práticas de acessibilidade, incluindo legibilidade dos textos, identificação clara dos controles, contraste adequado e navegação compreensível.
 
-Quando essas informações estiverem disponíveis e forem aplicáveis, o sistema deve permitir identificar a autoria ou a fonte do material e suas condições de utilização.
+Os critérios técnicos de acessibilidade serão detalhados em etapa posterior.
 
-**Critério de avaliação futura:** verificar se os campos definidos para autoria, fonte e condições de uso são apresentados de forma compreensível.
+## 4. Escopo do MVP
 
-## 5. Itens fora do escopo
+### Incluído no MVP
 
-Os seguintes itens não fazem parte do MVP:
+- Visualização do catálogo de materiais previamente cadastrados.
+- Busca por palavras-chave nos campos definidos no RF-002.
+- Busca sem distinção entre maiúsculas e minúsculas.
+- Busca sem distinção de acentuação.
+- Correspondência parcial de termos.
+- Ordenação dos resultados conforme a prioridade dos campos definida no RF-003.
+- Filtros por tipo de material e etapa de ensino.
+- Visualização dos detalhes dos materiais.
+- Acesso por link externo, quando disponível.
+- Acesso a arquivos hospedados na plataforma, quando disponíveis.
+- Tratamento dos estados sem materiais, sem resultados e sem acesso direto.
 
-- Pré-visualização de materiais dentro da plataforma;
-- Edição ou adaptação de materiais;
-- Criação, envio ou publicação de materiais pelos usuários;
-- Funcionalidades não previstas no escopo documental atual.
+### Fora do escopo do MVP
 
-## 6. Decisões, hipóteses e pendências
+- Cadastro e autenticação de usuários.
+- Envio ou publicação de materiais pelos usuários.
+- Criação ou edição de materiais dentro da plataforma.
+- Adaptação de materiais pelos usuários.
+- Pré-visualização de arquivos diretamente na plataforma.
+- Favoritos e coleções pessoais.
+- Recomendação automática de materiais.
+
+Essas funcionalidades poderão ser avaliadas em versões futuras.
+
+## 5. Prioridades e dependências
+
+A busca, os filtros, o catálogo, os detalhes e as opções de acesso constituem o escopo funcional previsto para o MVP.
+
+Algumas regras ainda precisam ser especificadas antes da implementação, especialmente:
+- O cálculo de relevância dos resultados.
+- Os critérios de desempate entre materiais.
+- As opções e combinações dos filtros.
+- Os campos obrigatórios dos materiais.
+- Os formatos de arquivo aceitos.
+- O tratamento de falhas de acesso.
+
+Essas pendências devem ser acompanhadas no documento `backlog.md`.
+
+## 6. Rastreabilidade
+
+Os requisitos devem ser mantidos em alinhamento com os documentos relacionados:
+
+| Requisito | Documentos relacionados |
+|---|---|
+| RF-001 — Catálogo | `historias-de-usuario.md`, `arquitetura-da-informacao.md` |
+| RF-002 — Busca | `historias-de-usuario.md`, `objetivos-de-ux.md`, `arquitetura-da-informacao.md` |
+| RF-003 — Relevância | `historias-de-usuario.md`, `user-flow.md` |
+| RF-004 — Filtros | `historias-de-usuario.md`, `user-flow.md`, `arquitetura-da-informacao.md` |
+| RF-005 — Ausência de resultados | `historias-de-usuario.md`, `user-flow.md`, `arquitetura-da-informacao.md` |
+| RF-006 — Detalhes | `historias-de-usuario.md`, `arquitetura-da-informacao.md` |
+| RF-007 — Link externo | `historias-de-usuario.md`, `user-flow.md` |
+| RF-008 — Arquivo hospedado | `historias-de-usuario.md`, `user-flow.md` |
+| RF-009 — Formas de acesso | `historias-de-usuario.md`, `user-flow.md` |
+| RF-010 — Falhas de acesso | `user-flow.md`, `arquitetura-da-informacao.md` |
+
+## 7. Decisões confirmadas, hipóteses e pendências
 
 ### Decisões confirmadas
 
 - O público prioritário são professores.
-- O produto contempla catálogo, pesquisa, filtros, detalhes e acesso aos materiais.
-- Os filtros previstos são tipo de material e etapa de ensino.
-- O acesso poderá ocorrer por link externo, arquivo hospedado na plataforma ou ambas as opções.
-- O MVP não inclui pré-visualização nem edição de materiais.
-- O projeto está em fase de revisão documental.
+- O MVP inclui catálogo, busca, filtros, detalhes e acesso aos materiais disponíveis.
+- A busca consulta título, tipo de material, resumo e descrição.
+- A busca ignora diferenças entre maiúsculas e minúsculas.
+- A busca ignora diferenças de acentuação.
+- A busca permite correspondências parciais.
+- Os resultados são ordenados por relevância, priorizando título, tipo de material, resumo e descrição, nessa ordem.
+- Os materiais podem ser acessados por link externo, arquivo hospedado, ambos ou nenhum dos dois.
+- A pré-visualização e a edição de materiais não fazem parte do MVP.
 
-### Hipóteses
+### Hipóteses a avaliar futuramente
 
-- Um catálogo organizado pode facilitar a descoberta de materiais.
-- A pesquisa e os filtros podem ajudar o professor a localizar recursos relevantes.
-- A clareza das informações pode facilitar a avaliação inicial e o acesso.
+- A busca e os filtros facilitarão a localização de materiais adequados às necessidades dos professores.
+- A apresentação clara das opções de acesso reduzirá a incerteza sobre como utilizar os materiais.
 
-Essas hipóteses não foram validadas por pesquisa com usuários reais.
+Essas hipóteses ainda não devem ser tratadas como resultados validados por pesquisa com usuários.
 
-### Pendências
+### Questões pendentes
 
-- Campos pesquisáveis e regras de correspondência;
-- Opções e combinação dos filtros;
-- Campos obrigatórios e opcionais dos materiais;
-- Formatos de arquivo aceitos;
-- Tratamento de links e arquivos indisponíveis;
-- Regras de apresentação de autoria, fonte e condições de utilização.
+- Cálculo detalhado da relevância.
+- Critérios de desempate.
+- Opções e combinações dos filtros.
+- Campos obrigatórios e opcionais dos materiais.
+- Formatos de arquivo aceitos.
+- Comportamento diante de falhas de acesso.
+- Critérios técnicos de acessibilidade.
 
-## 7. Rastreabilidade com as histórias de usuário
+## 8. Considerações metodológicas
 
-| Requisito | História relacionada |
-|---|---|
-| RF-001 — Catálogo | US-001 |
-| RF-002 — Pesquisa | US-002 |
-| RF-003 — Filtros | US-003 |
-| RF-004 — Detalhes | US-004 |
-| RF-005 — Link externo | US-005 |
-| RF-006 — Arquivo hospedado | US-005 |
-| RF-007 — Ausência de resultados | US-001, US-002 e US-003 |
-| RF-008 — Ausência de forma de acesso | US-004 e US-005 |
+O projeto está em fase de revisão documental. A implementação e a avaliação das funcionalidades ocorrerão em etapas futuras.
 
-## 8. Status da documentação
+Um formulário de pesquisa foi considerado anteriormente, mas sua aplicação foi abandonada. Portanto, dados simulados não devem ser apresentados como respostas reais, evidências empíricas ou validação das necessidades dos professores.
 
-Os requisitos representam comportamentos previstos para o MVP. Não constituem evidência de implementação, testes de software ou validação com usuários.
+As decisões registradas neste documento representam a especificação atual do produto, não resultados de testes ou de uma implementação concluída.
 
-A especificação deverá ser mantida alinhada ao Product Brief, às histórias de usuário e aos documentos de UX/UI.
+## 9. Documentos relacionados
+
+- `README.md`
+- `product-brief.md`
+- `historias-de-usuario.md`
+- `backlog.md`
+- `arquitetura-da-informacao.md`
+- `objetivos-de-ux.md`
+- `user-flow.md`
+- `design-system.md`
