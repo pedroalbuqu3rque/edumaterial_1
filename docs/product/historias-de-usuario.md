@@ -2,146 +2,227 @@
 
 **Versão:** 0.3  
 **Status:** Em revisão documental  
-**Referência:** [`requisitos.md`](./requisitos.md)  
-**Escopo:** MVP do EduMaterial
+**Referência:** `requisitos.md`
 
 ## 1. Objetivo
 
-Este documento descreve as histórias de usuário que representam os principais comportamentos esperados para o MVP do EduMaterial.
+Este documento descreve as histórias de usuário do EduMaterial e seus critérios de aceitação.
 
-As histórias foram organizadas para manter alinhados os requisitos funcionais, a arquitetura da informação, os objetivos de UX e os fluxos de navegação.
+O público prioritário do produto são professores que procuram materiais educacionais para utilizar em suas aulas.
 
-O público prioritário considerado é o de professores que procuram materiais didáticos para utilizar em suas aulas.
+As histórias representam comportamentos esperados para o MVP. Elas não significam que as funcionalidades já estejam implementadas ou validadas com usuários reais.
 
-As histórias representam funcionalidades planejadas. Não indicam que o sistema já tenha sido implementado, testado ou validado com usuários reais.
+## US-001 — Visualizar catálogo de materiais
 
-## 2. US-001 — Visualizar catálogo de materiais
+**História de usuário**
 
-### História de usuário
+Como professor, quero visualizar os materiais educacionais disponíveis para conhecer as opções que posso utilizar em minhas aulas.
 
-Como professor que procura materiais didáticos para minhas aulas, quero visualizar um catálogo organizado para conhecer os recursos disponíveis.
+**Critérios de aceitação**
 
-### Critérios de aceitação
-
-- O catálogo apresenta os materiais cadastrados e disponíveis.
-- Cada material apresenta um título que permita identificá-lo.
-- Os itens apresentam as informações resumidas definidas para o catálogo.
-- O professor consegue identificar como consultar os detalhes de um material.
-- Quando não houver materiais cadastrados, o sistema apresenta uma mensagem informativa de catálogo vazio.
-- O catálogo vazio não deve ser confundido com uma pesquisa sem resultados.
+- O sistema apresenta os materiais cadastrados no catálogo.
+- Cada material apresenta, no mínimo, um título identificável.
+- As informações apresentadas permitem distinguir um material dos demais.
+- O usuário consegue selecionar um material para consultar seus detalhes.
+- Quando não houver materiais cadastrados, o sistema apresenta uma mensagem informativa sobre o catálogo vazio.
 
 **Prioridade:** Essencial para o MVP.
 
-## 3. US-002 — Pesquisar materiais por palavras-chave
+**Requisito relacionado:** RF-001.
 
-### História de usuário
+## US-002 — Pesquisar materiais por palavras-chave
 
-Como professor que procura materiais didáticos para minhas aulas, quero pesquisar por palavras-chave para localizar recursos relacionados ao conteúdo que pretendo trabalhar.
+**História de usuário**
 
-### Critérios de aceitação
+Como professor, quero pesquisar materiais educacionais por palavras-chave para encontrar recursos relacionados ao assunto que desejo ensinar.
 
-- O sistema permite informar uma palavra ou expressão de pesquisa.
-- Os resultados correspondem aos termos informados, de acordo com as regras de pesquisa definidas.
-- Quando nenhum material corresponder à pesquisa, o sistema apresenta uma mensagem informativa.
-- O professor consegue alterar os termos e realizar uma nova pesquisa.
-- A ausência de resultados não é apresentada como se o catálogo estivesse vazio.
+**Critérios de aceitação**
 
-**Prioridade:** Essencial para o MVP.
-
-**Pendência relacionada:** Definir os campos considerados na pesquisa e as regras de correspondência, incluindo acentuação, letras maiúsculas e minúsculas e correspondências parciais.
-
-## 4. US-003 — Filtrar materiais
-
-### História de usuário
-
-Como professor que procura materiais didáticos para minhas aulas, quero filtrar os materiais por tipo e etapa de ensino para restringir as opções às que parecem mais relevantes para minha necessidade.
-
-### Critérios de aceitação
-
-- O sistema disponibiliza filtros por tipo de material e etapa de ensino.
-- A aplicação de um filtro restringe os resultados conforme o critério selecionado.
-- A interface permite identificar os filtros ativos.
-- O professor consegue remover filtros aplicados.
-- Quando não houver materiais correspondentes aos filtros, o sistema apresenta uma mensagem informativa.
-- O professor consegue alterar os filtros e consultar os resultados novamente.
-
-**Prioridade:** Incluída no MVP.
-
-**Pendência relacionada:** Definir as opções de cada filtro e como eles funcionarão em conjunto com a pesquisa por palavras-chave.
-
-## 5. US-004 — Consultar detalhes de um material
-
-### História de usuário
-
-Como professor que procura materiais didáticos para minhas aulas, quero consultar os detalhes de um recurso para avaliar inicialmente sua adequação ao conteúdo e aos objetivos da minha aula.
-
-### Critérios de aceitação
-
-- A página de detalhes identifica claramente o material consultado.
-- O sistema apresenta os campos descritivos disponíveis e definidos para o produto.
-- As informações ajudam a compreender as características e a finalidade do recurso.
-- O tipo de material e a etapa de ensino são apresentados quando estiverem disponíveis.
-- A autoria, a fonte e as condições de utilização são apresentadas quando essas informações estiverem disponíveis e forem aplicáveis.
-- O professor consegue identificar as formas de acesso cadastradas.
-- A consulta aos detalhes não depende de uma pré-visualização do conteúdo.
+- O sistema permite informar uma palavra ou expressão para pesquisar materiais.
+- A pesquisa considera os campos título, tipo de material, resumo e descrição.
+- A pesquisa não diferencia letras maiúsculas de minúsculas. Por exemplo, `Geografia` e `geografia` devem produzir correspondências equivalentes.
+- A pesquisa ignora diferenças de acentuação. Por exemplo, pesquisar `historia` deve permitir encontrar materiais que contenham `história`.
+- A pesquisa permite correspondências parciais. Por exemplo, pesquisar `geog` deve permitir encontrar materiais que contenham `geografia` em um dos campos pesquisáveis.
+- Os resultados são ordenados por relevância, priorizando os campos nesta ordem: título, tipo de material, resumo e descrição.
+- Quando não houver correspondências, o sistema apresenta uma mensagem informativa.
+- O usuário consegue modificar os termos e realizar uma nova pesquisa.
 
 **Prioridade:** Essencial para o MVP.
 
-**Pendência relacionada:** Definir os campos obrigatórios e opcionais da página de detalhes.
+**Requisitos relacionados:** RF-002, RF-003 e RF-005.
 
-## 6. US-005 — Acessar um material
+**Pendências de especificação:**
 
-### História de usuário
+- Definir os critérios detalhados de cálculo da relevância.
+- Definir como serão tratados materiais com relevância equivalente.
+- Definir o comportamento para expressões com várias palavras e diferentes tipos de correspondência.
 
-Como professor que encontrou um material de interesse, quero identificar e utilizar as formas de acesso disponíveis para consultar o recurso.
+## US-003 — Refinar resultados com filtros
 
-### Critérios de aceitação
+**História de usuário**
 
-- Quando houver um link externo cadastrado, o sistema apresenta uma ação que permite acessar o endereço correspondente.
-- Quando houver um arquivo hospedado na plataforma, o sistema apresenta uma ação para abrir ou baixar o arquivo, conforme os formatos e recursos definidos.
-- Quando o material possuir link e arquivo, as duas opções são identificadas separadamente.
-- Quando não houver link nem arquivo disponível, o sistema informa que não existe uma forma de acesso cadastrada.
-- O sistema não apresenta ações indisponíveis como se fossem funcionais.
-- O professor consegue retornar ao catálogo ou selecionar outro material.
+Como professor, quero filtrar os materiais disponíveis para localizar recursos mais adequados às minhas necessidades de ensino.
+
+**Critérios de aceitação**
+
+- O sistema apresenta os filtros definidos para o MVP.
+- Os filtros previstos são tipo de material e etapa de ensino.
+- A aplicação dos filtros atualiza os materiais apresentados de acordo com os critérios selecionados.
+- O usuário consegue remover os filtros aplicados.
+- Quando a combinação de filtros não produzir resultados, o sistema apresenta uma mensagem informativa.
+- A interação entre busca e filtros respeita as regras de combinação definidas para o produto.
+
+**Prioridade:** Prevista para o MVP.
+
+**Requisito relacionado:** RF-004.
+
+**Pendências de especificação:**
+
+- Definir as opções disponíveis em cada filtro.
+- Definir se vários valores poderão ser selecionados no mesmo filtro.
+- Definir como diferentes filtros serão combinados.
+- Definir o comportamento conjunto entre busca por palavras-chave e filtros.
+
+## US-004 — Consultar detalhes de um material
+
+**História de usuário**
+
+Como professor, quero consultar os detalhes de um material educacional para avaliar se ele atende às necessidades da minha aula.
+
+**Critérios de aceitação**
+
+- O usuário consegue abrir os detalhes de um material a partir do catálogo ou dos resultados da busca.
+- A página apresenta um título identificável.
+- O sistema apresenta as informações disponíveis sobre o material.
+- Quando disponíveis, os detalhes incluem tipo de material, etapa de ensino, resumo, descrição, instruções de utilização, autor ou fonte.
+- Quando aplicável e disponível, o sistema apresenta informações de autoria e licença.
+- As opções de acesso disponíveis são apresentadas de forma clara.
+- A ausência de informações opcionais não deve ser apresentada como se o material não existisse.
 
 **Prioridade:** Essencial para o MVP.
 
-**Pendências relacionadas:** Definir os formatos de arquivo aceitos e o tratamento de links ou arquivos que não possam ser acessados.
+**Requisito relacionado:** RF-006.
 
-## 7. Relação entre histórias e requisitos
+## US-005 — Acessar um material por link externo
+
+**História de usuário**
+
+Como professor, quero acessar o link externo associado a um material para consultar ou utilizar o recurso na fonte original.
+
+**Critérios de aceitação**
+
+- Quando houver um link externo disponível, o sistema apresenta uma opção clara de acesso.
+- A opção direciona o usuário ao endereço associado ao material.
+- O usuário consegue distinguir o link de acesso das informações descritivas do material.
+- Quando não houver link externo, o sistema não apresenta um botão de acesso a um endereço inexistente.
+
+**Prioridade:** Essencial para o MVP, quando houver link disponível.
+
+**Requisito relacionado:** RF-007.
+
+## US-006 — Acessar um arquivo hospedado na plataforma
+
+**História de usuário**
+
+Como professor, quero acessar um arquivo disponibilizado diretamente na plataforma para consultar ou utilizar o material educacional.
+
+**Critérios de aceitação**
+
+- Quando houver um arquivo hospedado disponível, o sistema apresenta uma opção clara para acessá-lo.
+- A opção corresponde ao arquivo associado ao material.
+- Quando não houver arquivo disponível, o sistema não apresenta um botão de acesso a um arquivo inexistente.
+- Os formatos de arquivo aceitos seguem as regras definidas para o produto.
+
+**Prioridade:** Essencial para o MVP, quando houver arquivo disponível.
+
+**Requisito relacionado:** RF-008.
+
+## US-007 — Identificar as opções de acesso disponíveis
+
+**História de usuário**
+
+Como professor, quero identificar se um material possui link externo, arquivo hospedado ou ambas as opções para saber como posso acessá-lo.
+
+**Critérios de aceitação**
+
+- Quando houver somente link externo, o sistema apresenta essa opção.
+- Quando houver somente arquivo hospedado, o sistema apresenta essa opção.
+- Quando houver link e arquivo, o sistema disponibiliza ambas as opções.
+- Quando não houver link nem arquivo, o sistema informa que não há acesso direto disponível.
+- A ausência de acesso direto não deve ser confundida com a ausência do material no catálogo.
+
+**Prioridade:** Essencial para o MVP.
+
+**Requisitos relacionados:** RF-006, RF-007, RF-008 e RF-009.
+
+## US-008 — Compreender uma falha de acesso
+
+**História de usuário**
+
+Como professor, quero receber uma informação clara quando um link ou arquivo estiver indisponível para compreender a situação e decidir o que fazer em seguida.
+
+**Critérios de aceitação**
+
+- Quando uma falha de acesso puder ser identificada, o sistema apresenta uma mensagem compreensível.
+- A mensagem distingue, quando possível, a indisponibilidade do recurso de sua ausência no cadastro.
+- O sistema não deve afirmar que um recurso está indisponível sem que essa condição possa ser identificada.
+- O comportamento para tentar novamente ou informar um problema deverá seguir as regras definidas para o produto.
+
+**Prioridade:** Prevista para o MVP, conforme as possibilidades de detecção de falhas.
+
+**Requisito relacionado:** RF-010.
+
+## 2. Relação entre histórias e requisitos
 
 | História | Requisitos relacionados |
 |---|---|
-| US-001 — Catálogo | RF-001 e RF-007 |
-| US-002 — Pesquisa | RF-002 e RF-007 |
-| US-003 — Filtros | RF-003 e RF-007 |
-| US-004 — Detalhes | RF-004 e RF-008 |
-| US-005 — Acesso | RF-005, RF-006 e RF-008 |
+| US-001 — Visualizar catálogo | RF-001 |
+| US-002 — Pesquisar materiais | RF-002, RF-003, RF-005 |
+| US-003 — Refinar resultados | RF-004 |
+| US-004 — Consultar detalhes | RF-006 |
+| US-005 — Acessar link externo | RF-007 |
+| US-006 — Acessar arquivo hospedado | RF-008 |
+| US-007 — Identificar opções de acesso | RF-006, RF-007, RF-008, RF-009 |
+| US-008 — Compreender falha de acesso | RF-010 |
 
-## 8. Decisões, hipóteses e pendências
+## 3. Decisões confirmadas
 
-### Decisões confirmadas
+- O público prioritário do EduMaterial são professores.
+- O MVP prevê catálogo, busca, filtros, detalhes e acesso aos materiais disponíveis.
+- A busca considera título, tipo de material, resumo e descrição.
+- A busca ignora diferenças entre maiúsculas e minúsculas.
+- A busca ignora diferenças de acentuação.
+- A busca permite correspondências parciais.
+- A relevância prioriza título, tipo de material, resumo e descrição, nessa ordem.
+- Um material pode ter link externo, arquivo hospedado, ambos ou nenhum.
+- A pré-visualização e a edição de materiais não fazem parte do MVP.
 
-- O público prioritário são professores.
-- O catálogo, a pesquisa, os filtros, os detalhes e o acesso fazem parte do MVP.
-- Os filtros previstos são tipo de material e etapa de ensino.
-- O acesso poderá ocorrer por link externo, arquivo hospedado na plataforma ou ambas as opções.
-- A pré-visualização e a edição de materiais estão fora do escopo inicial.
+## 4. Questões pendentes
 
-### Hipóteses
+- Critérios detalhados para calcular relevância e desempatar resultados.
+- Regras de combinação entre busca e filtros.
+- Opções e valores disponíveis nos filtros.
+- Campos obrigatórios e opcionais dos materiais.
+- Formatos de arquivo aceitos.
+- Comportamento diante de falhas de acesso.
 
-As histórias refletem necessidades e comportamentos esperados para o público prioritário. Essas expectativas ainda não foram validadas por pesquisa com usuários reais.
+As questões pendentes devem ser acompanhadas no documento `backlog.md`.
 
-### Pendências
+## 5. Considerações metodológicas
 
-- Regras de pesquisa;
-- Opções e combinação dos filtros;
-- Campos obrigatórios e opcionais;
-- Formatos de arquivo;
-- Tratamento de indisponibilidade de acesso.
+As histórias de usuário e seus critérios de aceitação representam requisitos planejados, não funcionalidades já implementadas.
 
-## 9. Status da documentação
+Um formulário de pesquisa foi considerado anteriormente, mas sua aplicação foi abandonada. Dados simulados não devem ser tratados como respostas reais nem como evidência de validação das necessidades dos professores.
 
-As histórias descrevem comportamentos previstos, não funcionalidades implementadas ou testadas. Elas deverão permanecer alinhadas aos requisitos e aos documentos de UX/UI.
+A avaliação das histórias com usuários reais poderá ocorrer em uma etapa futura, quando houver condições para realizá-la.
 
-A atual fase do projeto está restrita à revisão e consolidação documental. Implementação, QA e testes com usuários pertencem a etapas futuras.
+## 6. Documentos relacionados
+
+- `README.md`
+- `product-brief.md`
+- `requisitos.md`
+- `backlog.md`
+- `arquitetura-da-informacao.md`
+- `objetivos-de-ux.md`
+- `user-flow.md`
+- `design-system.md`
