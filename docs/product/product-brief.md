@@ -1,220 +1,255 @@
 # EduMaterial — Product Brief
 
-**Versão:** 0.3  
+**Versão:** 0.4  
 **Status:** Em revisão documental  
-**Tipo de projeto:** Projeto de estudo de caso para Product Ownership e documentação de produto
+**Tipo de projeto:** Projeto de desenvolvimento de produto com dados e cenários simulados para fins de estudo
 
 ## 1. Visão do produto
 
-O EduMaterial é uma proposta de plataforma digital para facilitar a descoberta e a consulta de materiais educacionais, especialmente por professores que buscam recursos para preparar e desenvolver suas aulas.
+O EduMaterial é uma proposta de plataforma digital destinada a facilitar a descoberta e o acesso a materiais educacionais.
 
-A plataforma pretende reunir materiais em um catálogo organizado, permitindo que os usuários pesquisem por palavras-chave, refinem os resultados por filtros, consultem informações sobre cada recurso e acessem o conteúdo quando houver uma forma de acesso disponível.
+A plataforma busca reunir materiais em um catálogo que permita aos professores pesquisar recursos, refinar os resultados, consultar informações relevantes e identificar as formas de acesso disponíveis.
 
-O EduMaterial busca simplificar a localização de recursos educacionais sem pressupor que todos os materiais possam ser visualizados, baixados ou modificados diretamente na plataforma.
+O produto tem como prioridade apoiar professores na localização de materiais que possam contribuir para o planejamento e a realização de suas aulas.
 
 ## 2. Problema
 
-Professores que procuram materiais para suas aulas podem precisar consultar diferentes fontes até encontrar recursos adequados aos seus objetivos pedagógicos e contextos de ensino.
+Professores que procuram materiais educacionais podem precisar consultar diferentes fontes até encontrar recursos relacionados ao conteúdo, à etapa de ensino e às necessidades de suas aulas.
 
-A dificuldade de localizar, comparar e acessar materiais relevantes é a hipótese de problema que orienta este projeto.
+O EduMaterial parte da hipótese de que um catálogo organizado, com busca e filtros, pode facilitar a descoberta desses recursos.
 
-Essa hipótese ainda não foi validada por uma pesquisa com usuários reais. Portanto, não deve ser tratada como uma conclusão comprovada sobre o comportamento ou as necessidades dos professores.
+Essa hipótese ainda não foi validada por uma pesquisa com usuários reais. Ela orienta a proposta inicial do produto, mas não deve ser apresentada como uma conclusão empírica.
 
 ## 3. Público-alvo
 
 ### Público prioritário
 
-- Professores que procuram materiais educacionais para preparar, complementar ou desenvolver suas aulas.
+**Professores que procuram materiais educacionais para utilizar em suas aulas.**
 
-### Público secundário
+O produto deve considerar as necessidades de quem deseja localizar recursos relacionados a determinado conteúdo ou etapa de ensino, compreender suas características e verificar como acessá-los.
 
-- Pessoas envolvidas na produção de materiais para atividades, oficinas e outras ações educacionais.
+### Público secundário potencial
 
-O desenvolvimento inicial será orientado principalmente pelas necessidades de descoberta e acesso a materiais do público prioritário.
+Outras pessoas envolvidas na preparação de aulas, atividades, oficinas ou ações educacionais poderão se beneficiar da plataforma.
+
+A prioridade do MVP, entretanto, permanece centrada nos professores que procuram materiais para suas aulas.
 
 ## 4. Objetivo do produto
 
-Facilitar a descoberta, a seleção e o acesso a materiais educacionais relevantes, reduzindo o esforço necessário para localizar recursos que possam contribuir para o planejamento e a realização de aulas.
+Facilitar a descoberta, a consulta e o acesso a materiais educacionais, reduzindo o esforço necessário para localizar recursos potencialmente relevantes.
+
+O produto deverá permitir que o usuário:
+
+- Explore um catálogo de materiais cadastrados.
+- Pesquise por palavras-chave.
+- Refine os resultados com filtros.
+- Consulte informações sobre cada material.
+- Identifique as opções de acesso disponíveis.
+- Receba informações claras quando não houver resultados ou quando ocorrer uma falha de acesso que possa ser identificada.
 
 ## 5. Proposta de valor
 
-Oferecer um catálogo centralizado e organizado de materiais educacionais, com recursos de busca, filtragem e consulta de informações, permitindo que o usuário identifique opções relevantes e acesse os conteúdos disponíveis.
+Oferecer um ambiente organizado para descobrir materiais educacionais, com mecanismos de busca, filtros e apresentação clara das informações e opções de acesso.
 
-A plataforma deve informar com clareza como cada material pode ser acessado, distinguindo arquivos disponibilizados diretamente no EduMaterial de links para fontes externas.
+A proposta de valor está concentrada em facilitar a localização e a consulta dos recursos, sem pressupor que todos os materiais estejam hospedados na plataforma.
 
-## 6. Escopo do MVP
+Um material poderá ser disponibilizado por link externo, por arquivo hospedado na própria plataforma, pelas duas formas ou sem acesso direto disponível.
 
-A primeira versão do produto será orientada à descoberta e ao acesso aos materiais educacionais.
+Funcionalidades de edição, adaptação e pré-visualização de materiais não fazem parte do MVP atual e poderão ser consideradas em versões futuras.
 
-### 6.1 Funcionalidades previstas
+## 6. Escopo do Produto Mínimo Viável (MVP)
 
-- **Catálogo de materiais:** apresentar os recursos educacionais disponíveis.
-- **Busca por palavras-chave:** permitir pesquisas nos campos definidos para o MVP.
-- **Ordenação por relevância:** priorizar os resultados de acordo com a correspondência entre a consulta e as informações de cada material.
-- **Filtros:** permitir o refinamento dos resultados por tipo de material e etapa de ensino.
-- **Detalhes do material:** apresentar informações que ajudem o usuário a compreender e selecionar o recurso.
-- **Acesso por link externo:** direcionar o usuário à fonte externa quando houver um link disponível.
-- **Acesso a arquivo hospedado:** disponibilizar o arquivo diretamente quando houver um arquivo hospedado na plataforma.
-- **Estados de interface:** apresentar mensagens adequadas quando não houver resultados ou quando ocorrer uma falha de acesso.
+O MVP previsto contempla as funcionalidades essenciais para localizar, consultar e acessar os materiais cadastrados.
 
-### 6.2 Regras definidas para a busca
+### 6.1 Funcionalidades incluídas
 
-A busca do MVP deverá considerar os seguintes campos:
+- Catálogo de materiais educacionais.
+- Busca por palavras-chave.
+- Pesquisa nos campos título, tipo de material, resumo e descrição.
+- Busca sem distinção entre letras maiúsculas e minúsculas.
+- Busca sem distinção de acentuação.
+- Correspondência parcial de termos.
+- Ordenação dos resultados por relevância.
+- Prioridade de relevância dos campos na seguinte ordem: título, tipo de material, resumo e descrição.
+- Filtros por tipo de material e etapa de ensino.
+- Apresentação dos detalhes dos materiais.
+- Acesso por link externo, quando disponível.
+- Acesso a arquivos hospedados na plataforma, quando disponíveis.
+- Representação dos cenários em que existe somente link externo, somente arquivo, ambos ou nenhum dos dois.
+- Mensagens para catálogo vazio e ausência de resultados.
+- Tratamento informativo de falhas de acesso que possam ser identificadas.
+- Apresentação clara das informações disponíveis sobre os materiais.
 
-1. Título.
-2. Tipo de material.
-3. Resumo.
-4. Descrição.
+### 6.2 Funcionalidades fora do escopo atual
 
-O comportamento esperado é:
+Não fazem parte do MVP:
 
-- Ignorar diferenças entre letras maiúsculas e minúsculas.
-- Ignorar diferenças de acentuação.
-- Aceitar correspondências parciais entre os termos pesquisados e o conteúdo dos campos.
-- Ordenar os resultados por relevância.
-- Priorizar correspondências no título, seguidas pelo tipo de material, pelo resumo e, por último, pela descrição.
+- Cadastro e publicação de materiais pelos usuários.
+- Criação de materiais dentro da plataforma.
+- Edição ou adaptação de materiais.
+- Pré-visualização de arquivos diretamente na plataforma.
+- Favoritos e coleções pessoais.
+- Recomendação automática de materiais.
+- Funcionalidades que dependam de autenticação de usuários, caso não sejam necessárias ao escopo posteriormente aprovado.
 
-A fórmula exata de pontuação da relevância, os critérios de desempate e o tratamento de consultas com múltiplas palavras permanecem pendentes de definição.
+Essas funcionalidades poderão ser avaliadas em etapas futuras, conforme as necessidades do produto e os recursos disponíveis.
 
-### 6.3 Formas de acesso aos materiais
+### 6.3 Limites da especificação atual
 
-Cada material poderá apresentar uma das seguintes situações:
+Embora o escopo funcional do MVP esteja estabelecido, algumas regras ainda precisam ser detalhadas antes da implementação.
 
-| Situação | Comportamento esperado |
-|---|---|
-| Link externo disponível, sem arquivo hospedado | Permitir acesso à fonte externa. |
-| Arquivo hospedado, sem link externo | Permitir acesso ao arquivo disponibilizado na plataforma. |
-| Link externo e arquivo hospedado disponíveis | Apresentar as duas possibilidades de acesso. |
-| Nenhuma forma de acesso disponível | Apresentar as informações do material sem oferecer uma ação de acesso indisponível. |
+Entre elas:
 
-A disponibilidade de uma forma de acesso não garante que a fonte externa continuará ativa ou que o conteúdo estará sempre acessível. Falhas de acesso devem ser tratadas de maneira clara para o usuário.
+- Fórmula de cálculo da relevância e critérios de desempate.
+- Tratamento de expressões com várias palavras.
+- Opções e regras de combinação dos filtros.
+- Interação entre busca e filtros.
+- Campos obrigatórios e opcionais dos materiais.
+- Formatos de arquivo aceitos.
+- Tratamento específico de falhas de acesso.
+- Critérios técnicos de acessibilidade.
 
-## 7. Informações dos materiais
+Essas pendências devem ser acompanhadas no `backlog.md` e refletidas nos documentos relacionados quando forem resolvidas.
 
-O catálogo e a página de detalhes deverão apresentar informações suficientes para ajudar o usuário a identificar e avaliar a pertinência de cada recurso.
+## 7. Princípios do produto
 
-Os campos previstos incluem:
+### 7.1 Facilidade de descoberta
 
-- Título.
-- Descrição.
-- Resumo.
-- Tipo de material.
-- Etapa de ensino.
-- Informações de acesso, conforme a disponibilidade de link externo ou arquivo hospedado.
+A organização do catálogo, a busca e os filtros devem apoiar a localização de materiais relevantes de maneira clara e compreensível.
 
-A definição dos campos obrigatórios, dos metadados complementares e das informações sobre autoria, origem e condições de uso ainda poderá ser refinada durante a especificação do produto.
+### 7.2 Autonomia docente
 
-Não se deve presumir que todos os materiais terão todos os campos preenchidos ou que todos permitirão download ou reutilização.
+A plataforma deve apoiar o trabalho dos professores, permitindo que avaliem a pertinência dos recursos para seus próprios contextos de ensino.
 
-## 8. Funcionalidades fora do escopo atual
+### 7.3 Transparência
 
-Não fazem parte do MVP definido nesta etapa:
+As informações disponíveis sobre autoria, origem e condições de uso devem ser apresentadas com clareza, respeitando os dados cadastrados para cada material.
 
-- Visualização prévia do conteúdo de um material diretamente na plataforma.
-- Edição ou adaptação de materiais dentro do EduMaterial.
-- Envio de arquivos pelos usuários.
-- Criação de materiais pelos usuários dentro da plataforma.
-- Validação de hipóteses por meio de pesquisa com usuários reais.
+### 7.4 Clareza de acesso
 
-Essas possibilidades poderão ser avaliadas futuramente, caso haja justificativa e priorização explícitas. Não devem ser consideradas funcionalidades já comprometidas para a primeira versão.
+O usuário deve conseguir identificar se um material possui link externo, arquivo hospedado, as duas opções ou nenhum acesso direto disponível.
 
-## 9. Princípios do produto
+### 7.5 Consistência
 
-### 9.1 Facilidade de descoberta
+Os requisitos, a interface e os comportamentos previstos devem estar alinhados. Mensagens e opções de acesso não devem sugerir a existência de recursos que não estejam disponíveis no cadastro.
 
-A organização do catálogo, a busca e os filtros devem ajudar o usuário a localizar recursos relevantes de maneira compreensível.
+### 7.6 Acessibilidade
 
-### 9.2 Autonomia docente
+A experiência deve considerar legibilidade, contraste, clareza dos controles, responsividade e práticas de navegação acessível.
 
-O EduMaterial deve apoiar o trabalho dos professores, oferecendo recursos para consulta e seleção sem substituir suas decisões pedagógicas.
+Os critérios técnicos específicos serão detalhados em etapas posteriores.
 
-### 9.3 Transparência
+## 8. Premissas, hipóteses e limitações
 
-A interface deve deixar claro quais informações estão disponíveis, como cada material pode ser acessado e quais limitações existem.
-
-### 9.4 Consistência
-
-Os mesmos termos, critérios de busca, padrões de apresentação e comportamentos de interface devem ser utilizados de forma coerente em todo o produto.
-
-### 9.5 Acessibilidade e responsividade
-
-A experiência deve considerar diferentes dispositivos, tamanhos de tela e necessidades de acesso, conforme os requisitos de UX e os critérios técnicos que forem definidos.
-
-### 9.6 Integridade metodológica
-
-Decisões de produto devem distinguir requisitos confirmados, hipóteses de trabalho e questões ainda pendentes. Cenários e dados simulados não devem ser apresentados como resultados de pesquisas reais.
-
-## 10. Premissas, decisões e pendências
-
-### 10.1 Decisões confirmadas
+### 8.1 Premissas de trabalho
 
 - O público prioritário é formado por professores que procuram materiais para suas aulas.
-- O MVP será centrado na descoberta, na consulta e no acesso aos materiais.
-- A busca considerará título, tipo de material, resumo e descrição.
-- A busca ignorará diferenças de caixa e acentuação e aceitará correspondências parciais.
-- Os resultados serão ordenados por relevância, com prioridade para título, tipo de material, resumo e descrição, nessa ordem.
-- Os filtros previstos incluem tipo de material e etapa de ensino.
-- Os materiais poderão ser acessados por link externo, por arquivo hospedado, por ambos ou não apresentar uma forma de acesso disponível.
-- A visualização prévia, a edição, a adaptação e o envio de materiais não fazem parte do MVP atual.
-- A revisão em andamento é documental e não corresponde à implementação ou à validação do produto.
+- O MVP concentra-se na descoberta, consulta e acesso aos materiais.
+- Os materiais podem ter diferentes formas de disponibilização.
+- O produto deve informar claramente quando não houver acesso direto disponível.
+- A implementação será orientada pelos requisitos, histórias de usuário e critérios de aceitação documentados.
 
-### 10.2 Hipóteses de trabalho
+### 8.2 Hipóteses a avaliar
 
-- Um catálogo centralizado poderá facilitar a localização de materiais educacionais.
-- A busca e os filtros poderão reduzir o esforço necessário para encontrar recursos pertinentes.
-- Informações claras sobre os materiais e suas formas de acesso poderão ajudar os professores a selecionar recursos mais adequados às suas necessidades.
+- Um catálogo organizado pode facilitar a descoberta de materiais educacionais.
+- A busca e os filtros podem reduzir o esforço necessário para localizar recursos relacionados às necessidades dos professores.
+- A apresentação clara das opções de acesso pode ajudar os usuários a compreender como chegar aos materiais.
 
-Essas hipóteses ainda precisam de evidências apropriadas para serem validadas.
+Essas hipóteses ainda precisam ser avaliadas. Não devem ser descritas como benefícios comprovados ou resultados de uma pesquisa realizada.
 
-### 10.3 Questões pendentes
+### 8.3 Limitações metodológicas
 
-- Qual será a fórmula de pontuação utilizada para ordenar os resultados por relevância?
-- Como serão tratados empates entre resultados com relevância equivalente?
-- Como a busca tratará consultas compostas por várias palavras?
-- Como a busca interagirá com os filtros selecionados?
-- Quais campos serão obrigatórios no cadastro de um material?
-- Quais informações sobre autoria, origem e condições de uso serão exibidas?
-- Quais formatos de arquivo serão aceitos e quais serão os limites de tamanho?
-- Como serão tratados links externos indisponíveis e arquivos que não puderem ser acessados?
-- Quais requisitos técnicos de acessibilidade, segurança e desempenho serão adotados?
+O projeto encontra-se em fase de revisão documental. A especificação atual descreve o comportamento pretendido do produto, mas não comprova sua implementação nem sua eficácia.
 
-As questões pendentes deverão ser resolvidas antes das etapas de implementação que dependam dessas definições.
+Um formulário de pesquisa foi considerado anteriormente, mas sua aplicação foi abandonada. Dados simulados podem ser utilizados para exercitar cenários e apoiar decisões de desenvolvimento, mas não devem ser apresentados como respostas reais de usuários, evidências empíricas ou validação das necessidades dos professores.
 
-## 11. Etapas do projeto
+A avaliação com usuários reais, os testes de qualidade e a validação das hipóteses pertencem a etapas futuras.
 
-O projeto será conduzido de forma incremental, respeitando o estágio atual de definição.
+## 9. Etapas do projeto
 
-1. **Revisão documental:** alinhar a visão do produto, os requisitos, as histórias de usuário, a arquitetura da informação, o fluxo de navegação e os objetivos de UX.
-2. **Consolidação dos requisitos:** resolver pendências relevantes e definir critérios de aceitação verificáveis.
-3. **Design da experiência:** detalhar a interface e os estados previstos para os fluxos do MVP.
-4. **Implementação futura:** desenvolver as funcionalidades priorizadas após a consolidação das definições.
-5. **Testes futuros:** verificar o comportamento da aplicação em relação aos requisitos e critérios de aceitação.
-6. **Avaliação futura:** caso seja realizada, conduzir uma avaliação com usuários reais e documentar método, participantes, resultados e limitações.
-7. **Documentação e portfólio:** registrar decisões, mudanças, resultados e aprendizados do projeto.
+O projeto está organizado em etapas que poderão ser ajustadas conforme a evolução do trabalho.
 
-As etapas de implementação, testes e avaliação são previstas para fases futuras. Não devem ser descritas como concluídas enquanto não forem efetivamente realizadas.
+### Etapa 1 — Revisão e consolidação documental
 
-## 12. Contexto metodológico
+- Revisar os documentos de produto e UX/UI.
+- Alinhar requisitos, histórias de usuário, arquitetura, fluxos e backlog.
+- Identificar decisões confirmadas e questões pendentes.
+- Conferir a consistência da documentação publicada.
 
-O EduMaterial é desenvolvido como um projeto de estudo de caso para praticar documentação de produto, Product Ownership e fundamentos de desenvolvimento de software e Quality Assurance.
+**Situação atual:** em andamento.
 
-A pesquisa por meio de Google Forms foi abandonada, e os dados simulados utilizados no projeto servem apenas para exercitar análise, especificação e tomada de decisão.
+### Etapa 2 — Especificação funcional e preparação da experiência
 
-Esses dados não representam respostas reais de participantes e não podem ser utilizados como evidência empírica sobre as necessidades, preferências ou comportamentos de professores.
+- Detalhar as regras pendentes de busca e filtros.
+- Consolidar os metadados dos materiais.
+- Definir os comportamentos relacionados ao acesso.
+- Revisar a arquitetura da informação e o fluxo do usuário.
+- Consolidar as diretrizes visuais.
 
-Qualquer futura validação com usuários reais deverá ser conduzida e documentada separadamente.
+**Situação:** parcialmente especificada, com decisões pendentes.
 
-## 13. Relação com os demais documentos
+### Etapa 3 — Prototipação
 
-Este Product Brief deve permanecer alinhado aos seguintes documentos:
+- Criar wireframes das telas principais.
+- Elaborar um protótipo visual navegável.
+- Representar os principais estados e cenários de uso.
 
-- `README.md`: apresentação geral do projeto e de seu escopo.
-- `docs/product/requisitos.md`: requisitos funcionais e não funcionais.
-- `docs/product/historias-de-usuario.md`: necessidades dos usuários e critérios de aceitação.
-- `docs/product/backlog.md`: organização e priorização das atividades.
-- `docs/ux-ui/arquitetura-da-informacao.md`: organização das informações e das páginas.
-- `docs/ux-ui/user-flow.md`: fluxos de navegação e acesso.
-- `docs/ux-ui/objetivos-de-ux.md`: objetivos da experiência do usuário.
-- `docs/ux-ui/design-system.md`: diretrizes visuais e componentes de interface.
+**Situação:** planejada para etapa futura.
 
-Quando uma decisão de escopo for alterada, os documentos relacionados deverão ser revisados para evitar contradições.
+### Etapa 4 — Avaliação da experiência
+
+- Planejar uma avaliação com professores.
+- Definir tarefas, critérios de observação e método de análise.
+- Coletar e analisar dados reais, caso a avaliação seja executada.
+
+**Situação:** planejada para etapa futura.
+
+### Etapa 5 — Implementação e verificação de qualidade
+
+- Planejar a implementação das funcionalidades aprovadas.
+- Desenvolver o MVP.
+- Verificar o atendimento aos critérios de aceitação.
+- Registrar os resultados das verificações e as limitações identificadas.
+
+**Situação:** planejada para etapa futura.
+
+## 10. Indicadores e avaliação futura
+
+A avaliação do produto deverá considerar indicadores adequados aos objetivos da plataforma, definidos antes da coleta de dados.
+
+Entre os aspectos que poderão ser avaliados estão:
+
+- Capacidade de localizar materiais relacionados a uma consulta.
+- Facilidade de utilização da busca e dos filtros.
+- Clareza das informações apresentadas nos detalhes.
+- Compreensão das opções de acesso.
+- Clareza das mensagens de ausência de resultados e falha de acesso.
+- Percepção dos professores sobre a utilidade da plataforma.
+
+Os indicadores, instrumentos e critérios de análise ainda deverão ser especificados. Nenhum resultado deve ser atribuído ao produto antes de sua efetiva coleta e análise.
+
+## 11. Critérios gerais de alinhamento do produto
+
+A documentação do EduMaterial será considerada coerente quando:
+
+- A visão do produto corresponder ao escopo do MVP.
+- Os requisitos funcionais representarem as funcionalidades previstas.
+- As histórias de usuário refletirem esses requisitos e apresentarem critérios de aceitação verificáveis.
+- A arquitetura da informação e os fluxos representarem os comportamentos especificados.
+- O backlog registrar as tarefas e pendências reais.
+- As decisões confirmadas não forem tratadas como questões em aberto sem justificativa.
+- As hipóteses forem diferenciadas de resultados validados.
+- O status dos documentos e das etapas corresponder ao andamento efetivo do projeto.
+
+## 12. Documentos relacionados
+
+- `README.md`
+- `docs/product/requisitos.md`
+- `docs/product/historias-de-usuario.md`
+- `docs/product/backlog.md`
+- `docs/ux-ui/arquitetura-da-informacao.md`
+- `docs/ux-ui/design-system.md`
+- `docs/ux-ui/objetivos-de-ux.md`
+- `docs/ux-ui/user-flow.md`
+
+Alterações no escopo ou nas decisões do produto deverão ser refletidas nos documentos pertinentes, mantendo a consistência e a rastreabilidade do projeto.
