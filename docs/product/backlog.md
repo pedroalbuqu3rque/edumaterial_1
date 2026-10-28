@@ -1,6 +1,6 @@
 # Backlog do EduMaterial
 
-**Versão:** 0.3  
+**Versão:** 0.4  
 **Status:** Em revisão documental  
 **Última atualização:** Outubro de 2026
 
@@ -22,7 +22,8 @@ As atividades atuais envolvem:
 - Identificar inconsistências entre requisitos, histórias de usuário, arquitetura da informação e fluxos.
 - Registrar decisões confirmadas, hipóteses e questões pendentes.
 - Alinhar o backlog ao escopo atualizado do MVP.
-- Organizar as próximas etapas do projeto.
+- Conferir a rastreabilidade entre requisitos, histórias e tarefas.
+- Verificar se as alterações documentais foram aplicadas ao repositório.
 
 Não fazem parte da etapa atual:
 
@@ -73,7 +74,9 @@ Essas atividades poderão ser planejadas para etapas futuras. Sua inclusão no b
 - A versão e o status dos documentos estão atualizados.
 - As informações são consistentes entre os documentos.
 - O escopo do MVP está descrito de maneira uniforme.
+- As decisões confirmadas e as pendências estão diferenciadas.
 - As mudanças revisadas foram efetivamente aplicadas ao repositório.
+- A revisão final confirma que os documentos não apresentam contradições relevantes.
 
 #### BK-002 — Verificar referências e links internos
 
@@ -87,6 +90,8 @@ Essas atividades poderão ser planejadas para etapas futuras. Sua inclusão no b
 - Os caminhos documentados correspondem à estrutura do projeto.
 - Não há referências a documentos inexistentes como se já estivessem disponíveis.
 - O README e os documentos relacionados refletem a organização atual do repositório.
+- As referências entre requisitos, histórias de usuário, arquitetura, fluxo e backlog estão corretas.
+- A verificação é realizada sobre a versão efetivamente publicada no repositório.
 
 #### BK-003 — Consolidar decisões, hipóteses e pendências
 
@@ -101,15 +106,16 @@ Essas atividades poderão ser planejadas para etapas futuras. Sua inclusão no b
 - As hipóteses não são apresentadas como fatos comprovados.
 - As questões ainda não resolvidas estão registradas.
 - Dados simulados não são apresentados como resultados de pesquisas reais.
-- As tarefas do backlog não são consideradas concluídas apenas por terem sido documentadas.
+- As pendências do backlog correspondem a questões que realmente continuam abertas.
+- As tarefas não são consideradas concluídas apenas por terem sido documentadas.
 
 ### P1 — Especificação funcional do MVP
 
-#### BK-004 — Definir e consolidar o comportamento da busca
+#### BK-004 — Consolidar a especificação da busca
 
 **Status:** Em andamento
 
-**Descrição:** Documentar as regras da busca de materiais educacionais e identificar as decisões restantes para sua especificação completa.
+**Descrição:** Consolidar as regras da busca de materiais educacionais e identificar as decisões restantes para sua especificação completa.
 
 **Decisões já estabelecidas:**
 
@@ -119,23 +125,26 @@ Essas atividades poderão ser planejadas para etapas futuras. Sua inclusão no b
 - A busca aceita correspondências parciais.
 - Os resultados são ordenados por relevância.
 - A prioridade dos campos é: título, tipo de material, resumo e descrição, nessa ordem.
+- A ausência de resultados deve ser informada ao usuário, permitindo revisar a consulta.
 
 **Questões pendentes:**
 
 - Como será calculada a pontuação de relevância?
 - Como serão tratados resultados com pontuação equivalente?
+- A correspondência exata terá prioridade sobre a correspondência parcial?
 - Como serão processadas consultas com múltiplas palavras?
 - Como serão tratados erros de digitação?
 - Como a busca se combinará com os filtros selecionados?
-- Qual será o comportamento da busca quando não houver correspondências?
 
 **Critérios de conclusão:**
 
-- As regras já definidas estão registradas nos requisitos e nas histórias de usuário.
-- As questões restantes estão resolvidas ou explicitamente delimitadas para uma etapa posterior.
-- Os critérios de ordenação dos resultados estão suficientemente especificados.
+- As regras confirmadas estão registradas nos requisitos e nas histórias de usuário.
+- As decisões restantes estão resolvidas ou explicitamente delimitadas para uma etapa posterior.
+- Os critérios de ordenação dos resultados estão suficientemente especificados antes da implementação.
 - Os exemplos de comportamento da busca estão documentados.
+- A interação entre busca e filtros está alinhada à BK-005.
 - Os documentos relacionados não apresentam regras contraditórias.
+- A ausência de resultados não é mantida como uma decisão genérica em aberto, pois seu comportamento básico já está definido.
 
 #### BK-005 — Especificar os filtros
 
@@ -143,17 +152,17 @@ Essas atividades poderão ser planejadas para etapas futuras. Sua inclusão no b
 
 **Descrição:** Consolidar o comportamento dos filtros utilizados para localizar materiais educacionais.
 
-**Decisões já estabelecidas:**
+**Decisão já estabelecida:**
 
 - Os filtros previstos para o MVP são tipo de material e etapa de ensino.
 
 **Questões pendentes:**
 
 - Quais opções estarão disponíveis em cada filtro?
-- Será possível combinar vários filtros simultaneamente?
-- Como a busca e os filtros funcionarão em conjunto?
+- Será possível selecionar várias opções simultaneamente no mesmo filtro?
+- Como diferentes filtros serão combinados?
 - Como o usuário poderá remover filtros aplicados?
-- Como a interface apresentará o estado sem resultados após a filtragem?
+- Como a busca e os filtros funcionarão em conjunto?
 
 **Critérios de conclusão:**
 
@@ -161,7 +170,8 @@ Essas atividades poderão ser planejadas para etapas futuras. Sua inclusão no b
 - As opções de cada filtro estão definidas.
 - As regras de combinação e remoção estão especificadas.
 - O comportamento conjunto da busca e dos filtros está descrito.
-- Os requisitos, as histórias de usuário e os fluxos estão alinhados.
+- Os estados sem resultados após a filtragem estão representados.
+- Os requisitos, as histórias de usuário, a arquitetura e os fluxos estão alinhados.
 
 #### BK-006 — Definir os metadados dos materiais
 
@@ -194,6 +204,7 @@ Essas atividades poderão ser planejadas para etapas futuras. Sua inclusão no b
 - As informações de autoria, origem e condições de uso foram consideradas.
 - Os metadados estão alinhados à arquitetura da informação.
 - Os campos utilizados pela busca correspondem às definições funcionais.
+- Os requisitos e as histórias de usuário refletem os campos definidos.
 
 #### BK-007 — Consolidar as regras de acesso aos materiais
 
@@ -211,18 +222,19 @@ Essas atividades poderão ser planejadas para etapas futuras. Sua inclusão no b
 **Questões pendentes:**
 
 - Quais formatos de arquivo serão aceitos?
-- Quais serão os limites de tamanho dos arquivos?
+- Quais serão os limites de tamanho dos arquivos, caso aplicáveis?
 - Como serão apresentados arquivos indisponíveis ou inválidos?
 - Como serão tratadas falhas ao abrir um link externo?
+- Como serão detectadas as falhas de acesso que a plataforma conseguir identificar?
 - Quais informações de autoria, origem e uso deverão acompanhar cada material?
-- Como serão apresentadas as opções de acesso quando ambas estiverem disponíveis?
 
 **Critérios de conclusão:**
 
 - Os quatro cenários estão especificados.
 - As ações disponíveis em cada cenário estão descritas.
 - As mensagens de ausência de acesso e de falha estão documentadas.
-- Os requisitos, as histórias de usuário e os fluxos representam os cenários corretamente.
+- A diferença entre ausência de acesso direto e ausência do material no catálogo está explícita.
+- Os requisitos, as histórias de usuário, a arquitetura e os fluxos representam os cenários corretamente.
 - A interface não apresenta ações de acesso que não estejam disponíveis.
 
 ### P2 — Preparação da experiência de uso
@@ -237,9 +249,10 @@ Essas atividades poderão ser planejadas para etapas futuras. Sua inclusão no b
 
 - A estrutura contempla catálogo, resultados e detalhes do material.
 - A busca e os filtros estão representados.
-- Os estados sem resultados e sem materiais cadastrados estão previstos.
+- Os estados sem resultados e sem materiais cadastrados estão previstos separadamente.
 - Os quatro cenários de acesso estão representados.
 - As informações dos materiais estão alinhadas aos metadados definidos.
+- As falhas de acesso estão diferenciadas da ausência de acesso direto.
 - A arquitetura está consistente com os requisitos e as histórias de usuário.
 
 #### BK-009 — Revisar o fluxo principal do usuário
@@ -291,7 +304,7 @@ As tarefas desta seção estão previstas para etapas posteriores à consolidaç
 - Detalhes do material.
 - Estado sem resultados.
 - Estado sem materiais cadastrados.
-- Estado sem acesso disponível.
+- Estado sem acesso direto disponível.
 - Situação de falha de acesso.
 
 **Critérios de conclusão:**
@@ -379,13 +392,15 @@ A sequência proposta para orientar o andamento do projeto é:
 
 1. Concluir a revisão e a padronização dos documentos.
 2. Conferir as referências e a consistência entre os arquivos.
-3. Consolidar as decisões funcionais pendentes da busca, dos filtros e dos metadados.
-4. Consolidar as regras de acesso aos materiais.
-5. Atualizar requisitos, histórias de usuário, arquitetura e fluxos conforme as decisões tomadas.
-6. Finalizar a revisão das diretrizes visuais.
-7. Criar wireframes e protótipo visual em uma etapa futura.
-8. Planejar e, quando viável, realizar avaliações com professores.
-9. Planejar a implementação e a verificação de qualidade em etapas posteriores.
+3. Consolidar as decisões funcionais pendentes da busca.
+4. Consolidar as regras dos filtros e sua interação com a busca.
+5. Definir os metadados necessários para descrever os materiais.
+6. Consolidar as regras de acesso e o tratamento de falhas.
+7. Atualizar requisitos, histórias de usuário, arquitetura e fluxos conforme as decisões tomadas.
+8. Finalizar a revisão das diretrizes visuais.
+9. Criar wireframes e protótipo visual em uma etapa futura.
+10. Planejar e, quando viável, realizar avaliações com professores.
+11. Planejar a implementação e a verificação de qualidade em etapas posteriores.
 
 A ordem poderá ser ajustada quando uma atividade depender de decisões ou recursos ainda indisponíveis.
 
