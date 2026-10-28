@@ -1,147 +1,322 @@
 # Design System — EduMaterial
 
+**Versão:** 0.2  
+**Status:** Proposta documental revisada  
+**Escopo:** MVP do EduMaterial
+
 ## 1. Objetivo
 
-Documentar os padrões visuais e os componentes utilizados na interface do EduMaterial, garantindo consistência entre as telas do produto.
+Documentar os princípios visuais, os tokens de design e os componentes previstos para a interface do EduMaterial, buscando manter consistência entre as diferentes áreas da plataforma.
 
-Este documento descreve a direção visual inicial do MVP. Os valores devem ser conferidos e ajustados conforme os estilos efetivamente utilizados no Figma.
+Este documento estabelece uma direção visual inicial para o MVP. Os valores e padrões apresentados são propostas de referência e deverão ser confrontados com o protótipo visual existente, caso aplicável, antes de serem tratados como definições finais.
+
+A documentação descreve uma interface planejada. Não significa que os componentes tenham sido implementados, verificados ou validados com usuários reais.
 
 ## 2. Direção visual
 
-A interface segue uma abordagem minimalista, com predominância de preto, branco e tons de cinza.
+A direção visual proposta para o EduMaterial é minimalista, com predominância de preto, branco e tons de cinza.
 
-Os princípios visuais são:
+A interface deve priorizar a organização das informações, a leitura dos materiais e a identificação das ações disponíveis, evitando elementos decorativos que não contribuam para a experiência de uso.
 
-- **Clareza:** priorizar a leitura e a identificação das informações.
-- **Simplicidade:** evitar elementos decorativos sem função.
-- **Consistência:** utilizar os mesmos padrões para componentes semelhantes.
-- **Hierarquia:** destacar títulos, ações principais e informações relevantes.
-- **Responsividade:** preservar a legibilidade em diferentes tamanhos de tela.
+### Princípios visuais
+
+- **Clareza:** apresentar informações e ações de maneira compreensível.
+- **Simplicidade:** evitar elementos visuais desnecessários.
+- **Consistência:** utilizar padrões semelhantes para componentes que desempenham funções equivalentes.
+- **Hierarquia:** destacar títulos, informações relevantes e ações principais.
+- **Legibilidade:** favorecer a leitura de descrições e metadados dos materiais.
+- **Responsividade:** preservar a compreensão e a utilização da interface em diferentes tamanhos de tela.
+- **Acessibilidade:** considerar contraste, foco visível, navegação por teclado e identificação textual das ações.
 
 ## 3. Cores
 
-| Token | Valor inicial | Aplicação |
+A paleta inicial proposta utiliza preto, branco e tons de cinza.
+
+| Token | Valor de referência | Aplicação prevista |
 |---|---|---|
-| `color-background` | `#FFFFFF` | Fundo principal |
-| `color-surface` | `#FFFFFF` | Cartões e superfícies |
+| `color-background` | `#FFFFFF` | Fundo principal das páginas |
+| `color-surface` | `#FFFFFF` | Cartões e superfícies de conteúdo |
 | `color-text-primary` | `#111111` | Títulos e textos principais |
 | `color-text-secondary` | `#666666` | Descrições e informações auxiliares |
 | `color-border` | `#E5E5E5` | Bordas e divisórias |
-| `color-surface-muted` | `#F5F5F5` | Fundos secundários |
+| `color-surface-muted` | `#F5F5F5` | Fundos secundários e áreas de apoio |
 | `color-action` | `#111111` | Ações principais |
 | `color-action-text` | `#FFFFFF` | Texto sobre ações principais |
 
-**Nota:** estes são valores de referência propostos. Antes da implementação, confirme se correspondem às cores usadas nas telas do Figma.
+Os valores são referências iniciais, não uma declaração de que as cores já foram implementadas ou verificadas no protótipo.
+
+Antes de serem tratados como definitivos, os tokens deverão ser conferidos em relação ao arquivo de design e avaliados quanto à legibilidade e ao contraste.
+
+### 3.1. Uso das cores
+
+- O fundo principal deve favorecer a leitura dos conteúdos.
+- Os tons de cinza devem auxiliar na separação de áreas e na apresentação de informações secundárias.
+- As ações principais devem apresentar contraste suficiente com o fundo.
+- As cores não devem ser o único meio de indicar estados, erros ou diferenças entre componentes.
+- Estados como selecionado, desabilitado e erro devem ser identificáveis também por rótulos, ícones, contornos ou outras indicações visuais apropriadas.
 
 ## 4. Tipografia
 
-A tipografia deve facilitar a leitura e estabelecer uma hierarquia visual clara.
+A tipografia deve estabelecer uma hierarquia clara entre títulos, informações dos materiais, descrições e elementos de apoio.
 
-| Estilo | Uso |
+| Estilo | Finalidade |
 |---|---|
-| Título principal | Nome da página ou mensagem principal |
-| Título de seção | Organização dos grupos de conteúdo |
-| Título de cartão | Identificação do material |
-| Texto de corpo | Descrições e informações |
-| Texto auxiliar | Categorias, metadados e orientações |
+| Título principal | Identificar a página ou destacar sua mensagem principal |
+| Título de seção | Organizar grupos de conteúdo |
+| Título de cartão | Identificar um material no catálogo |
+| Texto de corpo | Apresentar descrições e informações principais |
+| Texto auxiliar | Apresentar categorias, metadados e orientações |
+| Texto de controle | Identificar campos, filtros e ações |
 
-A família tipográfica e os tamanhos exatos devem ser definidos a partir dos estilos existentes no Figma, evitando divergências entre o protótipo e o código.
+A família tipográfica, os tamanhos, os pesos e as alturas de linha ainda precisam ser confirmados no arquivo de design.
+
+Até essa confirmação, os estilos tipográficos devem ser tratados como categorias semânticas propostas, e não como especificações finais de fonte e tamanho.
 
 ## 5. Espaçamento e organização
 
-O layout deve utilizar espaçamentos consistentes para organizar os elementos.
+O layout deve utilizar espaçamentos consistentes para estabelecer relações entre elementos e facilitar a leitura.
 
-Recomenda-se adotar uma escala baseada em múltiplos de 4 px, ajustada conforme a necessidade dos componentes.
+Como referência inicial, propõe-se uma escala baseada em múltiplos de 4 px.
 
 Exemplos de aplicação:
 
-- Pequenos intervalos entre ícones e textos.
-- Espaçamento interno uniforme em botões e campos.
-- Distância consistente entre cartões.
-- Separação maior entre seções da página.
+- Espaçamento entre ícones e seus rótulos.
+- Distância interna entre o conteúdo e as bordas de botões.
+- Espaçamento entre campos de pesquisa e filtros.
+- Separação entre cartões do catálogo.
+- Distância entre seções e blocos de conteúdo.
+- Margens laterais adequadas em telas menores.
 
-Os valores finais devem ser conferidos no arquivo de design.
+Os valores finais devem ser definidos a partir do protótipo visual e aplicados de maneira consistente entre os componentes.
 
 ## 6. Componentes
 
+Os componentes descritos nesta seção representam elementos previstos para a interface do MVP. Seus comportamentos e estados deverão ser especificados de acordo com os requisitos e a arquitetura da informação.
+
 ### 6.1. Cabeçalho
 
-Responsável pela identificação do EduMaterial e pela navegação principal.
+**Finalidade:** identificar o EduMaterial e oferecer acesso à navegação principal prevista para o produto.
 
-Deve manter alinhamento, espaçamento e hierarquia visual consistentes entre as telas.
+**Diretrizes:**
+- Manter alinhamento e espaçamento consistentes.
+- Apresentar os elementos de navegação com hierarquia visual clara.
+- Preservar a legibilidade em diferentes tamanhos de tela.
+- Evitar elementos de navegação que não correspondam às funcionalidades previstas no MVP.
 
 ### 6.2. Campo de pesquisa
 
-Permite informar palavras-chave para localizar materiais.
+**Finalidade:** permitir que o professor informe palavras-chave para localizar materiais.
 
-Deve apresentar um rótulo ou indicação compreensível, além de um estado visual claro de foco.
+**Diretrizes:**
+- Apresentar um rótulo ou indicação textual compreensível.
+- Tornar clara a finalidade do campo.
+- Exibir um estado de foco identificável.
+- Permitir que o usuário compreenda como iniciar uma pesquisa.
+- Manter consistência com os demais campos da interface.
+
+A aparência do campo não define, por si só, as regras de pesquisa. Os campos pesquisáveis e o comportamento da busca permanecem especificados na documentação de requisitos.
 
 ### 6.3. Filtros
 
-Permitem restringir os materiais por critérios disponíveis, como tipo de material e etapa de ensino.
+**Finalidade:** permitir o refinamento do catálogo por tipo de material e etapa de ensino.
 
-Os estados selecionado e não selecionado devem ser visualmente distinguíveis.
+**Diretrizes:**
+- Identificar claramente cada critério de filtragem.
+- Diferenciar visualmente os estados selecionado e não selecionado.
+- Indicar os filtros ativos.
+- Tornar possível identificar como remover ou alterar filtros.
+- Preservar a legibilidade em telas menores.
+
+A apresentação visual dos filtros deverá acompanhar as regras funcionais definidas para sua utilização em conjunto com a pesquisa.
 
 ### 6.4. Cartão de material
 
-Apresenta um resumo do recurso no catálogo.
+**Finalidade:** apresentar um resumo do recurso no catálogo ou nos resultados da pesquisa.
 
-Deve priorizar o título e informações úteis para identificar o material. Quando clicável, sua aparência e seu comportamento devem indicar essa possibilidade.
+**Diretrizes:**
+- Priorizar o título do material.
+- Apresentar as informações resumidas definidas para o catálogo.
+- Organizar metadados, como tipo e etapa de ensino, de maneira consistente.
+- Evitar excesso de informações no cartão.
+- Indicar claramente como consultar os detalhes do recurso, quando o cartão ou uma de suas áreas for interativa.
+- Não exibir informações que não estejam disponíveis no cadastro do material.
 
-### 6.5. Botões
+O cartão não deve sugerir que existe uma visualização prévia do conteúdo, pois essa funcionalidade está fora do MVP.
 
-Devem diferenciar ações principais de ações secundárias.
+### 6.5. Botões e ações
 
-O texto precisa descrever claramente o resultado esperado, como pesquisar, limpar filtros ou abrir um material.
+**Finalidade:** permitir a execução das ações disponíveis na interface.
+
+**Diretrizes:**
+- Diferenciar ações principais e secundárias.
+- Utilizar rótulos que descrevam o resultado esperado.
+- Manter consistência visual entre ações equivalentes.
+- Apresentar estados identificáveis de foco e desabilitação.
+- Evitar rótulos ambíguos.
+
+Exemplos de ações previstas incluem pesquisar, limpar filtros, consultar detalhes e acessar um material.
 
 ### 6.6. Estado sem resultados
 
-Informa que a pesquisa não encontrou materiais correspondentes.
+**Finalidade:** informar que a pesquisa ou os filtros aplicados não retornaram materiais correspondentes.
 
-Deve apresentar uma mensagem clara e, quando aplicável, orientar o usuário a alterar os termos ou limpar os filtros.
+**Diretrizes:**
+- Apresentar uma mensagem direta e compreensível.
+- Diferenciar a ausência de resultados de uma falha técnica.
+- Orientar o usuário, quando apropriado, a alterar os termos ou remover filtros.
+- Não sugerir que o catálogo está vazio quando existem materiais cadastrados, mas nenhum corresponde aos critérios utilizados.
 
-### 6.7. Página de detalhes
+### 6.7. Estado de catálogo vazio
 
-Organiza as informações de um material selecionado e destaca a ação de acesso ao recurso, quando houver um link disponível.
+**Finalidade:** informar que não há materiais cadastrados para apresentar no catálogo.
+
+**Diretrizes:**
+- Utilizar uma mensagem diferente daquela empregada para uma pesquisa sem resultados.
+- Não sugerir que o usuário precisa corrigir a pesquisa quando não há materiais cadastrados.
+- Manter a apresentação visual consistente com os demais estados informativos da interface.
+
+### 6.8. Página de detalhes do material
+
+**Finalidade:** organizar as informações de um recurso selecionado e permitir que o professor identifique sua forma de acesso.
+
+**Diretrizes:**
+- Apresentar o título e as informações descritivas em uma hierarquia clara.
+- Organizar os metadados de maneira consistente.
+- Distinguir as informações do material das ações de acesso.
+- Não depender de uma visualização prévia para apresentar os detalhes.
+- Não exibir dados fictícios ou presumidos como se fossem informações cadastradas.
+
+### 6.9. Acesso por link externo
+
+**Finalidade:** permitir que o professor identifique e acesse um material disponível em um endereço externo.
+
+**Diretrizes:**
+- Utilizar uma ação com rótulo claro, como “Acessar material”.
+- Informar, quando necessário, que o acesso direciona o usuário para um ambiente externo.
+- Manter a ação visualmente distinguível das informações descritivas.
+- Não exibir a ação quando não houver link externo cadastrado.
+
+O comportamento de links indisponíveis deverá ser definido nos requisitos e considerado no detalhamento posterior da interface.
+
+### 6.10. Acesso a arquivo hospedado na plataforma
+
+**Finalidade:** permitir que o professor acesse ou baixe um arquivo disponibilizado diretamente na plataforma.
+
+**Diretrizes:**
+- Identificar claramente a ação de acesso ao arquivo.
+- Distinguir o acesso ao arquivo do acesso por link externo.
+- Apresentar informações sobre o arquivo quando esses dados estiverem disponíveis e forem relevantes.
+- Não exibir uma ação de acesso a arquivo quando não houver arquivo disponível.
+
+Os formatos aceitos, os limites de tamanho e as regras de armazenamento permanecem pendentes de definição.
+
+### 6.11. Estado sem forma de acesso
+
+**Finalidade:** informar que o material não possui link externo nem arquivo disponível para acesso.
+
+**Diretrizes:**
+- Apresentar uma mensagem clara sobre a ausência de uma forma de acesso cadastrada.
+- Não exibir botões que prometam abrir um recurso inexistente.
+- Preservar as informações descritivas do material.
+- Manter uma apresentação consistente com os demais estados informativos.
 
 ## 7. Estados dos componentes
 
-Os componentes interativos devem considerar, conforme sua função:
+Os componentes interativos deverão considerar os estados aplicáveis à sua função.
 
-- Padrão.
-- Hover.
-- Foco por teclado.
-- Selecionado.
-- Desabilitado.
-- Carregamento ou erro, quando aplicável.
+| Estado | Aplicação prevista |
+|---|---|
+| Padrão | Aparência habitual do componente |
+| Hover | Indicação visual ao posicionar o ponteiro sobre um elemento interativo, quando aplicável |
+| Foco | Indicação visual do elemento que recebeu foco, incluindo navegação por teclado |
+| Selecionado | Indicação de uma opção ou filtro ativo |
+| Desabilitado | Indicação de uma ação temporariamente indisponível |
+| Carregamento | Indicação de que uma operação está em andamento, quando aplicável |
+| Sem resultados | Indicação de que uma pesquisa ou filtragem não retornou materiais |
+| Erro | Indicação de falha em uma operação, quando identificada |
+| Sem acesso | Indicação de que não existe link ou arquivo disponível para o material |
 
-Os estados devem ser implementados e verificados durante o desenvolvimento, não apenas representados visualmente.
+Nem todos os estados se aplicam a todos os componentes. O detalhamento deve considerar a função de cada elemento e o comportamento previsto nos requisitos.
+
+A descrição desses estados não significa que já tenham sido implementados ou verificados.
 
 ## 8. Acessibilidade
 
-A interface deve buscar:
+A interface deve considerar princípios de acessibilidade desde o planejamento visual.
 
-- Contraste adequado entre texto e fundo.
-- Textos legíveis e hierarquia de títulos consistente.
-- Navegação por teclado nos elementos interativos.
-- Indicação visível de foco.
-- Rótulos compreensíveis para campos e botões.
-- Informações que não dependam exclusivamente de cores para serem compreendidas.
+Diretrizes propostas:
+
+- Utilizar contraste adequado entre texto, fundo, bordas e controles.
+- Manter uma hierarquia consistente de títulos.
+- Utilizar textos legíveis e rótulos compreensíveis.
+- Permitir a identificação visual do foco dos elementos interativos.
+- Considerar a navegação por teclado nos controles interativos.
+- Evitar que informações dependam exclusivamente de cores.
+- Utilizar rótulos que expressem a finalidade dos campos e das ações.
+- Distinguir mensagens informativas de mensagens de erro.
+- Preservar a compreensão das informações em diferentes tamanhos de tela.
+
+Os critérios técnicos específicos de acessibilidade ainda deverão ser definidos conforme as necessidades do produto. A presença dessas diretrizes no documento não representa uma certificação ou validação de acessibilidade.
 
 ## 9. Responsividade
 
-A interface deve se adaptar a computadores e dispositivos móveis.
+A interface deve adaptar sua organização a computadores e dispositivos móveis.
 
-Durante a implementação, verificar:
+Diretrizes propostas:
 
-- Reorganização dos cartões em telas menores.
-- Adaptação dos filtros e do campo de pesquisa.
-- Ausência de rolagem horizontal desnecessária.
-- Legibilidade dos textos.
-- Facilidade para acionar botões e links em telas sensíveis ao toque.
+- Reorganizar os cartões conforme a largura disponível.
+- Adaptar o campo de pesquisa e os filtros para telas menores.
+- Evitar rolagem horizontal desnecessária.
+- Preservar a legibilidade dos títulos, descrições e metadados.
+- Manter as ações principais identificáveis e utilizáveis em telas sensíveis ao toque.
+- Evitar que informações ou ações de acesso sejam ocultadas em telas menores.
 
-## 10. Evolução do Design System
+Os pontos de quebra e os valores específicos de espaçamento ainda deverão ser definidos no detalhamento visual.
 
-Este documento representa a primeira versão do Design System do EduMaterial.
+## 10. Decisões confirmadas, hipóteses e pendências
 
-Os tokens, componentes e estados deverão ser revisados conforme a implementação e os testes do produto. Alterações relevantes devem ser registradas para manter a documentação alinhada à interface.
+### 10.1. Decisões confirmadas
+
+- A direção visual inicial será minimalista, com predominância de preto, branco e tons de cinza.
+- O MVP terá catálogo, pesquisa, filtros e detalhes dos materiais.
+- O acesso poderá ocorrer por links externos ou arquivos hospedados na plataforma.
+- A visualização prévia dos materiais está fora do MVP.
+- A interface deve contemplar estados de ausência de resultados e ausência de forma de acesso.
+
+### 10.2. Hipóteses de design
+
+- Uma interface visualmente simples poderá facilitar a leitura das informações.
+- Uma hierarquia clara poderá ajudar os professores a identificar materiais e ações.
+- A distinção visual entre as modalidades de acesso poderá reduzir ambiguidades.
+- Estados informativos bem definidos poderão facilitar a compreensão de situações sem resultados ou sem acesso.
+
+Essas hipóteses são princípios de planejamento, não resultados comprovados por testes com usuários.
+
+### 10.3. Pendências
+
+- Confirmar se os tokens de cor correspondem ao protótipo visual existente.
+- Definir a família tipográfica e os estilos tipográficos finais.
+- Confirmar a escala definitiva de espaçamento.
+- Detalhar a apresentação dos filtros em diferentes tamanhos de tela.
+- Definir os rótulos finais das ações de acesso.
+- Especificar os estados visuais para links e arquivos indisponíveis.
+- Detalhar os critérios de acessibilidade aplicáveis ao produto.
+- Definir os pontos de quebra do layout responsivo.
+
+As pendências deverão ser resolvidas e registradas antes de os valores correspondentes serem tratados como especificações definitivas.
+
+## 11. Evolução do Design System
+
+Este documento representa uma proposta inicial de Design System para o EduMaterial.
+
+A evolução deverá acompanhar as decisões documentadas de produto, a arquitetura da informação e os fluxos de uso. Alterações nos tokens, componentes ou estados deverão ser registradas para preservar a coerência entre os artefatos de design.
+
+A confirmação de que os componentes estão implementados ou funcionando deverá ocorrer apenas quando houver evidências correspondentes nas etapas futuras do projeto.
+
+## 12. Status da documentação
+
+**Status atual:** proposta de Design System em revisão documental.
+
+O projeto está concentrado na consolidação da documentação de produto e UX/UI. A implementação, a verificação técnica e os testes com usuários não são considerados concluídos nem fazem parte desta etapa.
+
+A coleta de respostas por meio do Google Forms foi abandonada. Portanto, as diretrizes deste documento não devem ser apresentadas como resultados de pesquisa com professores. Eventuais dados ou cenários simulados devem ser identificados como fictícios e não podem ser tratados como evidências empíricas.
