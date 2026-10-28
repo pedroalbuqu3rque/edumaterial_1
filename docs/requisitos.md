@@ -59,3 +59,25 @@ Essas funcionalidades poderão ser avaliadas em versões futuras.
 Os requisitos são propostas iniciais para um estudo de caso simulado. Poderão ser refinados conforme o escopo técnico for definido.
 
 A prioridade de cada requisito deve ser considerada em conjunto com a documentação de priorização do MVP.
+
+## 6. Escopo do MVP
+
+### Incluído na primeira versão
+- Visualização do catálogo de materiais cadastrados previamente.
+- Busca por palavras-chave.
+- Filtros por tipo de material e etapa de ensino.
+- Visualização dos detalhes de um material.
+- Acesso ao recurso por link, quando disponível.
+
+### Fora do escopo da primeira versão
+- Cadastro e autenticação de usuários.
+- Envio de materiais pelos usuários.
+- Favoritos e coleções pessoais.
+- Recomendações automáticas.
+- Edição de materiais dentro da plataforma.
+
+### Justificativa
+O escopo prioriza as funcionalidades diretamente relacionadas à descoberta de materiais educacionais, mantendo a primeira versão pequena o suficiente para ser desenvolvida e testada como projeto de portfólio.
+
+### Status da decisão
+Escopo proposto para o estudo de caso simulado. A implementação ainda não foi iniciada.
