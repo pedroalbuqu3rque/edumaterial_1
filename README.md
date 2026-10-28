@@ -1,91 +1,111 @@
 # EduMaterial
 
-O EduMaterial é um projeto de portfólio voltado ao planejamento de uma plataforma digital para facilitar a descoberta e a seleção de materiais didáticos por professores.
+O EduMaterial é um projeto de portfólio voltado ao planejamento de uma plataforma digital educacional para facilitar a descoberta, a seleção e o acesso a materiais didáticos por professores.
 
-A proposta é reunir recursos educacionais em um catálogo organizado, permitindo que os professores encontrem materiais de acordo com suas necessidades e acessem os recursos por meio de links externos ou de arquivos disponibilizados diretamente na plataforma.
+A proposta é organizar recursos educacionais em um catálogo que permita explorar materiais, pesquisar por palavras-chave, aplicar filtros e consultar informações relevantes antes de acessar os recursos.
+
+O acesso poderá ocorrer por meio de links externos, arquivos hospedados diretamente na plataforma ou ambos, conforme as opções disponíveis para cada material.
 
 ## Sobre o projeto
 
-O EduMaterial simula o processo de concepção e planejamento de um produto digital educacional, com foco em Product Discovery, Product Ownership e UX/UI Design.
+O EduMaterial é um estudo de caso de planejamento de produto digital, com foco em Product Discovery, Product Ownership e UX/UI Design.
 
-O projeto parte da hipótese de que encontrar materiais didáticos adequados pode exigir tempo e esforço dos professores. A plataforma é proposta como uma possível solução para facilitar esse processo por meio de um catálogo com mecanismos de busca, filtros e informações sobre os materiais.
+A proposta parte da hipótese de que localizar materiais didáticos adequados pode exigir que professores consultem diferentes fontes e avaliem diversos recursos antes de escolher aqueles que pretendem utilizar em suas aulas.
 
-Essa hipótese ainda não foi validada por uma pesquisa com usuários reais. Portanto, as necessidades descritas na documentação devem ser interpretadas como hipóteses de produto, e não como resultados comprovados de entrevistas, questionários ou testes com professores.
+O catálogo organizado, a pesquisa, os filtros e as informações descritivas são propostos como possíveis formas de facilitar esse processo. Entretanto, essa hipótese ainda não foi validada por pesquisa com usuários reais.
+
+A documentação, portanto, registra o planejamento do produto, suas decisões de escopo, suas hipóteses e as questões que permanecem pendentes. Ela não deve ser interpretada como evidência de que as necessidades identificadas já foram comprovadas.
 
 ## Objetivo
 
-Planejar uma solução digital que facilite a descoberta, a organização e a seleção de materiais didáticos por professores, estabelecendo requisitos e fluxos de uso coerentes com o escopo inicial do produto.
+Planejar uma solução digital que facilite a descoberta, a avaliação inicial e o acesso a materiais didáticos, estabelecendo uma visão de produto, requisitos, histórias de usuário, arquitetura da informação, fluxos de navegação e diretrizes de interface coerentes entre si.
 
 ## Público-alvo
 
-O público prioritário do EduMaterial são professores que procuram materiais didáticos para utilizar em suas aulas.
+O público prioritário são professores que procuram materiais didáticos para utilizar em suas aulas.
 
-A experiência deve favorecer a localização de recursos, a compreensão de suas características e a identificação das formas disponíveis de acesso.
+A experiência proposta deve ajudar esse público a:
 
-## Escopo inicial do produto
+- Explorar os materiais disponíveis;
+- Localizar recursos por palavras-chave;
+- Refinar os resultados por critérios relevantes;
+- Consultar informações sobre cada material;
+- Identificar as formas disponíveis de acesso.
 
-A versão inicial planejada (MVP) contempla:
+Outros profissionais da educação poderão se beneficiar da proposta, mas não constituem a prioridade para a definição do MVP.
 
-- **Catálogo de materiais didáticos:** apresentação organizada dos recursos disponíveis.
-- **Busca:** localização de materiais por termos de pesquisa.
+## Escopo do MVP
+
+A versão inicial planejada do produto contempla:
+
+- **Catálogo de materiais:** apresentação organizada dos recursos cadastrados.
+- **Pesquisa por palavras-chave:** localização de materiais relacionados aos termos informados.
 - **Filtros:** refinamento dos resultados por tipo de material e etapa de ensino.
-- **Detalhes do material:** apresentação de informações que auxiliem o professor a avaliar a adequação do recurso.
-- **Acesso aos materiais:** disponibilização de links externos ou de arquivos hospedados diretamente na plataforma.
+- **Detalhes do material:** apresentação de informações que ajudem o professor a compreender e avaliar inicialmente o recurso.
+- **Acesso aos materiais:** disponibilização de links externos, arquivos hospedados na plataforma ou ambas as opções, quando disponíveis.
+- **Estados informativos:** comunicação de situações como catálogo vazio, pesquisa sem resultados e ausência de uma forma de acesso cadastrada.
 
-A visualização prévia dos materiais dentro da plataforma não faz parte do MVP e poderá ser considerada em uma versão futura.
+A pré-visualização dos materiais dentro da plataforma não faz parte do MVP. A edição, a criação ou a adaptação de materiais dentro do sistema também estão fora do escopo inicial.
 
-A adaptação ou edição de materiais dentro da plataforma também não faz parte do escopo inicial. O foco está em ajudar o professor a encontrar, avaliar e acessar os recursos disponíveis.
-
-O escopo poderá ser refinado durante a revisão documental, desde que as alterações sejam registradas e mantenham a coerência entre os documentos do projeto.
+As regras detalhadas de pesquisa, as opções dos filtros, os campos obrigatórios dos materiais e o tratamento de falhas de acesso permanecem sujeitos a especificação.
 
 ## Processo de planejamento
 
 O projeto está organizado nas seguintes frentes:
 
-1. **Product Discovery:** definição do problema, identificação do público prioritário e registro das hipóteses que orientam a proposta.
+1. **Product Discovery:** formulação do problema, identificação do público prioritário e registro das hipóteses do produto.
 2. **Product Ownership:** definição do escopo, dos requisitos, das histórias de usuário e das prioridades do MVP.
-3. **UX/UI Design:** organização da arquitetura da informação, dos fluxos de uso, dos objetivos de experiência e das diretrizes visuais.
-4. **Desenvolvimento:** implementação futura da solução, após a consolidação do planejamento.
+3. **UX/UI Design:** organização da arquitetura da informação, dos fluxos de navegação, dos objetivos de UX e das diretrizes visuais.
+4. **Desenvolvimento:** implementação futura, caso o projeto avance para essa etapa.
 5. **Quality Assurance (QA):** planejamento e execução futura de atividades de verificação e testes, em uma etapa posterior.
 
-Neste momento, o trabalho está concentrado na revisão e consolidação da documentação. A descrição das etapas futuras não significa que elas já tenham sido executadas.
+**Fase atual:** revisão e consolidação da documentação. A descrição das etapas futuras não significa que a implementação, os testes de software ou a validação com usuários já tenham ocorrido.
 
 ## Metodologia e integridade das informações
 
-A documentação distingue decisões de escopo, hipóteses de produto e questões ainda pendentes de definição.
+A coleta de respostas por meio do Google Forms foi abandonada. Portanto, não existem resultados desse questionário que possam ser apresentados como evidência de pesquisa com professores.
 
-O projeto não deve apresentar dados simulados como resultados de uma pesquisa real. Caso sejam utilizados exemplos fictícios para ilustrar cenários, requisitos ou conteúdos do catálogo, eles deverão ser identificados como simulações.
+Dados simulados, exemplos fictícios e cenários ilustrativos não devem ser apresentados como respostas reais, resultados empíricos ou validações do produto.
 
-Não há, no escopo documental atual, resultados de uma pesquisa com professores que possam ser utilizados como evidência empírica para confirmar as hipóteses do produto.
+Para manter a transparência documental, o projeto diferencia:
 
-Assim, as decisões de planejamento devem ser justificadas pelo escopo definido, pela análise do problema proposto e pela coerência entre os artefatos documentais, sem atribuir conclusões a participantes ou dados que não foram efetivamente coletados.
+- **Decisões confirmadas:** definições adotadas para orientar o escopo atual.
+- **Hipóteses:** suposições sobre o problema, as necessidades do público e os benefícios esperados.
+- **Pendências:** questões que ainda precisam de definição.
+- **Etapas futuras:** atividades planejadas que não foram executadas.
+
+A documentação atual se fundamenta nas decisões de escopo e na coerência entre os artefatos do projeto, sem atribuir conclusões a participantes ou dados que não foram efetivamente coletados.
 
 ## Tecnologias e ferramentas
 
-As tecnologias de implementação serão definidas em uma etapa posterior, conforme as necessidades funcionais e as decisões de arquitetura do produto.
+As tecnologias de implementação ainda não estão definidas neste estágio. A escolha deverá ocorrer em uma etapa posterior, considerando as necessidades do produto e as decisões de arquitetura.
 
-O GitHub é utilizado para versionamento e organização dos artefatos do projeto. Outras ferramentas poderão ser adotadas conforme a necessidade de cada etapa.
+O GitHub é utilizado para organizar e versionar a documentação do projeto. Outras ferramentas poderão ser incorporadas conforme as necessidades das próximas etapas.
 
 ## Status do projeto
 
-**Fase atual:** revisão e consolidação da documentação de produto e UX/UI.
+**Status geral:** em revisão documental.
 
 As prioridades atuais são:
 
-- Alinhar os documentos ao escopo confirmado do MVP.
-- Diferenciar decisões estabelecidas, hipóteses e pendências.
-- Corrigir inconsistências entre requisitos, histórias de usuário, arquitetura da informação e fluxos de uso.
-- Garantir que informações simuladas não sejam apresentadas como evidências de pesquisa real.
+- Manter uma definição única e consistente do MVP;
+- Alinhar os requisitos às histórias de usuário;
+- Harmonizar os documentos de produto e UX/UI;
+- Diferenciar decisões confirmadas, hipóteses e pendências;
+- Garantir que dados simulados não sejam apresentados como evidências reais;
+- Consolidar os fluxos e as diretrizes de experiência antes de eventuais etapas futuras.
 
-A implementação e as atividades de QA não fazem parte desta etapa de trabalho.
+A implementação e as atividades de QA não fazem parte da fase atual.
 
 ## Organização do repositório
 
-A documentação do projeto está organizada nas seguintes áreas:
+A documentação está organizada nas seguintes áreas:
 
-- `docs/product/`: documentação de produto, incluindo visão, requisitos e histórias de usuário.
-- `docs/ux-ui/`: documentação de experiência e interface, incluindo arquitetura da informação, objetivos de UX, fluxos de uso e sistema de design.
+- `docs/product/`: visão do produto, requisitos e histórias de usuário.
+- `docs/ux-ui/`: arquitetura da informação, design system, objetivos de UX e fluxos de navegação.
 
 ## Portfólio
 
-Este repositório registra a evolução do EduMaterial, suas decisões de escopo, hipóteses, requisitos e artefatos de planejamento. As etapas futuras poderão incorporar os documentos e resultados correspondentes à implementação e à avaliação do produto, caso essas atividades sejam realizadas.
+Este repositório registra o processo de planejamento do EduMaterial, incluindo decisões de escopo, hipóteses, requisitos e artefatos de produto e UX/UI.
+
+Caso o projeto avance para implementação ou avaliação, as atividades realizadas e seus resultados deverão ser documentados separadamente, de acordo com as evidências efetivamente produzidas.
