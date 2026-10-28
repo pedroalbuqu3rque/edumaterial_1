@@ -1,155 +1,178 @@
 # User Flow — EduMaterial
 
-**Versão:** 0.2  
+**Versão:** 0.3  
 **Status:** Em revisão documental  
 **Escopo:** MVP do EduMaterial
 
 ## 1. Objetivo
 
-Representar o fluxo de navegação de um professor que deseja encontrar, avaliar e acessar um material educacional por meio do EduMaterial.
+Representar o fluxo de navegação de um professor que deseja encontrar, avaliar inicialmente e acessar um material educacional por meio do EduMaterial.
 
-O fluxo contempla a exploração do catálogo, a pesquisa por palavras-chave, a aplicação de filtros, a consulta aos detalhes do material e o acesso ao recurso, seja por um link externo, seja por um arquivo disponibilizado diretamente na plataforma.
+O fluxo contempla a exploração do catálogo, a pesquisa por palavras-chave, a aplicação de filtros, a consulta aos detalhes e o acesso ao recurso por link externo, arquivo hospedado na plataforma ou ambas as opções.
 
-Este documento descreve o comportamento pretendido para o MVP. Não representa uma funcionalidade implementada ou validada com usuários.
+Este documento descreve o comportamento pretendido para o MVP. Não representa uma funcionalidade implementada ou validada com usuários reais.
 
 ## 2. Usuário principal
 
-O fluxo tem como usuário prioritário o **professor que procura materiais educacionais para utilizar em suas aulas**.
+O fluxo tem como usuário prioritário o professor que procura materiais didáticos para utilizar em suas aulas.
 
-A experiência deve permitir que esse usuário descubra recursos relevantes, compreenda suas características antes de acessá-los e identifique claramente como obter o material.
+A experiência deve permitir que esse usuário descubra recursos potencialmente relevantes, compreenda as informações disponíveis e identifique claramente como acessar o material.
 
 ## 3. Fluxo principal de navegação
 
 ```mermaid
 flowchart TD
-    A[Acessar o EduMaterial] --> B[Explorar o catálogo]
+    A[Acessar o EduMaterial] --> B{Existem materiais cadastrados?}
 
-    B --> C{Como encontrar um material?}
+    B -->|Não| C[Exibir catálogo vazio]
+    C --> D[Informar que não há materiais disponíveis]
 
-    C -->|Pesquisa| D[Informar palavras-chave]
-    C -->|Filtros| E[Selecionar filtros]
-    C -->|Exploração| F[Visualizar materiais disponíveis]
+    B -->|Sim| E[Explorar o catálogo]
 
-    D --> G[Visualizar resultados]
-    E --> G
+    E --> F{Como encontrar um material?}
 
-    G --> H{Existem resultados?}
+    F -->|Pesquisa| G[Informar palavras-chave]
+    F -->|Filtros| H[Selecionar filtros]
+    F -->|Exploração| I[Visualizar materiais disponíveis]
 
-    H -->|Sim| I[Selecionar um material]
-    H -->|Não| J[Exibir estado sem resultados]
+    G --> J[Apresentar resultados]
+    H --> J
 
-    J --> K[Ajustar pesquisa ou filtros]
-    K --> G
+    J --> K{Existem resultados?}
 
-    F --> I
+    K -->|Não| L[Exibir estado sem resultados]
+    L --> M[Ajustar pesquisa ou filtros]
+    M --> J
 
-    I --> L[Consultar detalhes do material]
+    K -->|Sim| N[Selecionar um material]
+    I --> N
 
-    L --> M{Existe uma forma de acesso?}
+    N --> O[Consultar detalhes do material]
+    O --> P{Quais formas de acesso estão disponíveis?}
 
-    M -->|Link externo| N[Acessar o recurso externo]
-    M -->|Arquivo na plataforma| O[Abrir ou baixar o arquivo]
-    M -->|Nenhuma forma disponível| P[Consultar informações e orientações disponíveis]
+    P -->|Link externo| Q[Acessar link externo]
+    P -->|Arquivo| R[Abrir ou baixar arquivo]
+    P -->|Link e arquivo| S[Escolher uma forma de acesso]
+    P -->|Nenhuma| T[Informar ausência de acesso cadastrado]
 
-    N --> Q[Fim do fluxo de acesso]
-    O --> Q
-    P --> R[Retornar ao catálogo ou escolher outro material]
-    R --> B
+    S --> Q
+    S --> R
+
+    Q --> U[Fim do fluxo de acesso]
+    R --> U
+
+    T --> V[Retornar ao catálogo ou escolher outro material]
+    V --> E
 ```
+
+O diagrama representa os principais caminhos previstos. O comportamento detalhado dos filtros, dos arquivos e das falhas de acesso ainda depende de especificações pendentes.
 
 ## 4. Descrição das etapas
 
 | Etapa | Ação do usuário | Resposta esperada do sistema |
 |---|---|---|
 | Acesso inicial | Entra no EduMaterial | Apresenta o catálogo e as opções de navegação disponíveis. |
-| Exploração | Percorre os materiais disponíveis | Exibe os materiais cadastrados, sem exigir uma pesquisa prévia. |
-| Pesquisa | Informa palavras-chave | Apresenta materiais correspondentes à pesquisa, quando houver. |
-| Filtragem | Seleciona um ou mais filtros | Restringe os resultados conforme os critérios disponíveis. |
-| Visualização dos resultados | Analisa as opções apresentadas | Exibe informações resumidas que ajudam a comparar os materiais. |
-| Ausência de resultados | Não encontra materiais correspondentes | Informa que não foram encontrados resultados e permite rever a pesquisa ou os filtros. |
-| Seleção | Escolhe um material | Abre a página ou área de detalhes do material selecionado. |
-| Consulta aos detalhes | Analisa as informações do material | Apresenta os dados disponíveis para ajudar o professor a avaliar sua relevância. |
-| Acesso por link externo | Seleciona o link de acesso | Disponibiliza a navegação para o recurso externo. |
-| Acesso por arquivo | Seleciona o arquivo disponibilizado | Permite abrir ou baixar o arquivo, conforme o formato e os recursos da plataforma. |
-| Indisponibilidade de acesso | Encontra um material sem link ou arquivo acessível | Informa a limitação e evita exibir uma ação de acesso que não possa ser concluída. |
+| Verificação do catálogo | Acessa a página inicial | Apresenta os materiais cadastrados ou informa que o catálogo está vazio. |
+| Exploração | Percorre os materiais | Exibe os materiais disponíveis sem exigir uma pesquisa prévia. |
+| Pesquisa | Informa palavras-chave | Apresenta os materiais correspondentes, conforme as regras de pesquisa definidas. |
+| Filtragem | Seleciona filtros | Refina os resultados conforme os critérios selecionados. |
+| Ausência de resultados | Não encontra materiais correspondentes | Informa a situação e permite alterar a pesquisa ou os filtros. |
+| Seleção | Escolhe um material | Abre os detalhes do material selecionado. |
+| Consulta aos detalhes | Analisa as informações do recurso | Apresenta os campos disponíveis e as formas de acesso cadastradas. |
+| Acesso por link | Seleciona um link externo | Direciona o usuário ao endereço cadastrado. |
+| Acesso por arquivo | Seleciona um arquivo | Permite abrir ou baixar o arquivo, conforme o formato e os recursos definidos. |
+| Acesso por ambas as opções | Escolhe entre link e arquivo | Permite selecionar uma das formas de acesso disponíveis. |
+| Ausência de acesso | Consulta um material sem link ou arquivo | Informa que não há forma de acesso cadastrada e mantém as informações descritivas disponíveis. |
 
-## 5. Informações relevantes para a decisão
+## 5. Informações relevantes na página de detalhes
 
-Na etapa de detalhes, o professor deve encontrar, quando disponíveis, informações que o ajudem a compreender o material antes de acessá-lo:
+A página de detalhes deve apresentar, quando disponíveis e conforme os campos definidos para o produto:
 
 - Título do material;
 - Tipo ou formato do recurso;
-- Etapa de ensino ou público a que se destina;
-- Resumo e descrição;
+- Etapa de ensino;
+- Resumo;
+- Descrição;
 - Orientações de uso;
 - Autoria ou fonte;
-- Informações de licença ou condições de utilização, quando aplicáveis;
-- Forma de acesso ao recurso.
+- Condições de utilização;
+- Link externo;
+- Arquivo hospedado na plataforma.
 
-A disponibilidade e a obrigatoriedade de cada campo devem seguir as definições do catálogo e dos requisitos do produto. Informações ainda não definidas não devem ser tratadas como funcionalidades confirmadas.
+A obrigatoriedade de cada campo ainda precisa ser definida. A página de detalhes não depende de uma pré-visualização do conteúdo, pois essa funcionalidade está fora do escopo do MVP.
 
 ## 6. Decisões de experiência
 
 - A pesquisa não deve ser o único caminho para encontrar materiais.
 - O professor deve poder explorar o catálogo sem informar palavras-chave.
-- A pesquisa, os filtros e a exploração devem conduzir à visualização dos materiais correspondentes.
-- O estado sem resultados deve explicar a situação e oferecer uma possibilidade de recuperação, como ajustar a pesquisa ou limpar os filtros.
-- A página de detalhes deve fornecer informações suficientes para apoiar a avaliação inicial do material.
-- A forma de acesso deve estar identificada com clareza.
-- Links externos e arquivos hospedados na plataforma devem ser tratados como formas distintas de acesso.
-- Quando não houver uma forma de acesso disponível, a interface deve informar essa condição sem apresentar ações indisponíveis.
+- A interface deve distinguir um catálogo vazio de uma pesquisa sem resultados.
+- Os filtros ativos devem ser identificáveis e passíveis de remoção.
+- A página de detalhes deve ajudar o usuário a compreender as características do material antes de acessá-lo.
+- A interface deve identificar claramente as formas de acesso disponíveis.
+- Link externo e arquivo hospedado são formas distintas de acesso.
+- Quando ambas as opções estiverem disponíveis, a interface deve permitir identificar cada uma.
+- Quando não houver uma forma de acesso cadastrada, a interface deve informar essa condição sem apresentar ações indisponíveis como funcionais.
 - O fluxo não deve pressupor a existência de pré-visualização dos materiais no MVP.
 
 ## 7. Estados alternativos e situações excepcionais
 
-Além do fluxo principal, a experiência deve considerar os seguintes estados:
+### 7.1. Catálogo vazio
 
-### 7.1 Catálogo vazio
+Ocorre quando não existem materiais cadastrados para exibição. A interface deve informar que o catálogo está vazio.
 
-Se ainda não houver materiais cadastrados, a interface deve informar que o catálogo está vazio. Esse estado é diferente de uma pesquisa sem resultados: no primeiro caso, não existem materiais disponíveis no catálogo; no segundo, a pesquisa ou os filtros não retornaram correspondências.
+Esse estado é diferente de uma pesquisa sem resultados: no primeiro caso, não existem materiais cadastrados; no segundo, existem materiais no catálogo, mas nenhum corresponde aos critérios utilizados.
 
-### 7.2 Pesquisa sem resultados
+### 7.2. Pesquisa ou filtragem sem resultados
 
-O sistema deve informar que não foram encontrados materiais para os critérios utilizados. O usuário deve poder ajustar as palavras-chave ou remover filtros e tentar novamente.
+Ocorre quando a pesquisa ou os filtros não retornam materiais correspondentes.
 
-### 7.3 Material sem forma de acesso
+A interface deve informar a situação e permitir que o usuário altere os termos da pesquisa ou remova os filtros.
 
-Um material pode apresentar informações descritivas sem possuir um link externo ou arquivo disponível. Nessa situação, a interface deve deixar clara a limitação e não simular uma ação de acesso funcional.
+### 7.3. Material sem forma de acesso cadastrada
 
-### 7.4 Link externo indisponível
+Ocorre quando o material não possui link externo nem arquivo disponível.
 
-Se o destino externo não puder ser acessado, a falha pode estar fora do controle do EduMaterial. O comportamento específico para comunicar ou registrar esse problema ainda precisa ser definido.
+A interface deve informar essa condição, manter as informações descritivas disponíveis e permitir que o professor retorne ao catálogo.
 
-### 7.5 Arquivo indisponível
+### 7.4. Link externo indisponível
 
-Se um arquivo cadastrado não puder ser aberto ou baixado, a interface deverá comunicar a indisponibilidade. O tratamento técnico dessa situação depende da implementação futura.
+Pode ocorrer quando o endereço cadastrado não funciona ou o recurso externo está indisponível.
 
-## 8. Decisões confirmadas, hipóteses e pendências
+A forma de comunicar essa falha e o comportamento específico da interface ainda precisam ser definidos.
 
-### 8.1 Decisões confirmadas
+### 7.5. Arquivo indisponível
+
+Pode ocorrer quando um arquivo cadastrado não pode ser aberto ou baixado.
+
+A interface deverá comunicar a indisponibilidade. O tratamento técnico dessa situação será especificado em uma etapa posterior.
+
+## 8. Decisões, hipóteses e pendências
+
+### 8.1. Decisões confirmadas
 
 - O público prioritário são professores que procuram materiais para suas aulas.
 - O usuário poderá explorar o catálogo, pesquisar e utilizar filtros.
-- O acesso aos materiais poderá ocorrer por links externos ou por arquivos hospedados na plataforma.
-- A consulta aos detalhes fará parte do fluxo de descoberta e acesso.
-- A pré-visualização dos materiais não faz parte do escopo do MVP.
+- Os filtros previstos são tipo de material e etapa de ensino.
+- A consulta aos detalhes faz parte do fluxo de descoberta e acesso.
+- O acesso poderá ocorrer por link externo, arquivo hospedado na plataforma ou ambas as opções.
+- A pré-visualização dos materiais não faz parte do MVP.
 - Este documento descreve o fluxo pretendido, não uma implementação concluída.
 
-### 8.2 Hipóteses de experiência
+### 8.2. Hipóteses de experiência
 
 - A combinação de exploração, pesquisa e filtros pode facilitar a descoberta de materiais relevantes.
 - Informações resumidas no catálogo podem ajudar o professor a decidir quais materiais consultar.
-- Informações detalhadas e uma indicação clara da forma de acesso podem reduzir dúvidas antes de utilizar um recurso.
+- Informações detalhadas e uma indicação clara das formas de acesso podem facilitar a escolha e o acesso aos recursos.
 
 Esses pontos representam expectativas de experiência, não resultados comprovados por pesquisa com usuários.
 
-### 8.3 Decisões pendentes
+### 8.3. Pendências
 
-- Definir quais filtros estarão disponíveis no MVP e se poderão ser combinados.
+- Definir os campos pesquisáveis e as regras de correspondência.
+- Definir as opções de cada filtro e a combinação entre pesquisa e filtros.
 - Definir os campos obrigatórios e opcionais dos materiais.
-- Especificar os formatos de arquivo aceitos e as ações de acesso correspondentes.
-- Definir como serão apresentadas a autoria, a fonte e as condições de utilização dos materiais.
-- Especificar o tratamento de links e arquivos indisponíveis.
+- Definir os formatos de arquivo aceitos.
+- Definir o tratamento de links e arquivos indisponíveis.
 - Definir o comportamento visual de cada estado da interface.
 
 ## 9. Relação com os demais documentos
@@ -160,20 +183,21 @@ Este fluxo deve ser interpretado em conjunto com:
 - [`requisitos.md`](../product/requisitos.md) — requisitos funcionais e não funcionais;
 - [`historias-de-usuario.md`](../product/historias-de-usuario.md) — necessidades dos usuários e critérios de aceitação;
 - [`arquitetura-da-informacao.md`](./arquitetura-da-informacao.md) — organização do catálogo, dos resultados e dos detalhes;
-- [`objetivos-de-ux.md`](./objetivos-de-ux.md) — objetivos e princípios da experiência.
+- [`objetivos-de-ux.md`](./objetivos-de-ux.md) — objetivos e princípios da experiência;
+- [`design-system.md`](./design-system.md) — direção visual e componentes previstos.
 
-Caso haja divergências entre os documentos, as decisões de escopo confirmadas do produto devem orientar a revisão, enquanto questões ainda não resolvidas devem permanecer identificadas como pendências.
+As decisões confirmadas de escopo devem orientar a revisão dos documentos. Questões ainda não resolvidas devem permanecer identificadas como pendências, sem serem tratadas como funcionalidades definidas.
 
 ## 10. Status e validação futura
 
 O fluxo está documentado como uma proposta para o MVP. Não há, nesta etapa, evidência de implementação ou validação com usuários.
 
-Em uma fase futura, poderá ser avaliado por meio de testes de usabilidade que verifiquem se professores conseguem:
+Caso o projeto avance para uma etapa futura de avaliação, o fluxo poderá orientar tarefas de usabilidade que verifiquem se professores conseguem:
 
 1. Encontrar um material por exploração, pesquisa ou filtros;
 2. Compreender as informações apresentadas nos resultados e nos detalhes;
-3. Identificar corretamente como acessar o material;
+3. Identificar as formas de acesso disponíveis;
 4. Recuperar-se de uma pesquisa sem resultados;
-5. Reconhecer quando um recurso não possui uma forma de acesso disponível.
+5. Reconhecer quando um material não possui uma forma de acesso cadastrada.
 
 A realização dessas atividades depende de uma etapa posterior do projeto e não faz parte da atual revisão documental.
